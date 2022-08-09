@@ -43,8 +43,6 @@ Thumbs.db
 
 package-lock.json
 
-src/static/fonts/
-
 yarn.lock
 
 src/static/fonts/
