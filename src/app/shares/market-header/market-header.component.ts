@@ -9,7 +9,7 @@ export class MarketHeaderComponent implements OnInit {
   tags = [];
   showSearchModal = false;
   title = '';
-  logo = '';
+  logo = '/src/static/dkala/logo.svg';
 
   constructor() {
   }

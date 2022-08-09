@@ -23,7 +23,10 @@
       "dom"
     ],
     "paths": {
-      "@static/*": ["src/static/*"]
+      "@static/*": ["src/static/*"],
+      "@static": ["src/static/"],
+      "@assets/*": ["src/assets/*"],
+      "@assets": ["src/assets"],
     }
   },
   "angularCompilerOptions": {
