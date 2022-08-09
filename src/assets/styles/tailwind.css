@@ -11,10 +11,6 @@
     @apply text-center justify-center flex rounded-lg bg-primary px-5 py-2.5 text-center text-sm font-medium text-white dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800;
   }
 
-  .bg-primary {
-    @apply bg-white
-  }
-
   .btn-primary-outlined {
     @apply btn-primary bg-transparent text-primary border border-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800;
   }
