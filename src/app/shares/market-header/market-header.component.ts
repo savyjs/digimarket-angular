@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-market-header',
@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./market-header.component.css']
 })
 export class MarketHeaderComponent implements OnInit {
+  tags = [];
+  showSearchModal = false;
+  title = '';
+  logo = '';
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

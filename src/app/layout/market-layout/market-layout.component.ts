@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./market-layout.component.css']
 })
 export class MarketLayoutComponent implements OnInit {
+  backdrop = false;
 
   constructor() { }
 

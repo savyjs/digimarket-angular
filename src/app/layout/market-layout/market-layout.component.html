@@ -2,8 +2,8 @@
   <app-svg-icons></app-svg-icons>
   <app-market-header></app-market-header>
   <main class="container mx-auto mt-[110px]">
-      <div id="backdrop-searchModal" v-show="backdrop">
-        <div class="backdrop delay-700" @click="backdrop=false"></div>
+      <div id="backdrop-searchModal" *ngIf="backdrop">
+        <div class="backdrop delay-700" (click)="backdrop=false"></div>
       </div>
     <router-outlet></router-outlet>
   </main>
