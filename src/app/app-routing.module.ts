@@ -7,7 +7,7 @@ const routes: Routes = [
     path: '', children: [
       {
         path: 'products',
-        loadChildren: () => import('./layout/market-layout/market-layout.module').then(m => m.MarketLayoutModule)
+        loadChildren: () => import('./shares/layout/market-layout/market-layout.module').then(m => m.MarketLayoutModule)
       }
     ]
   },

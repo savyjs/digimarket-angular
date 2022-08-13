@@ -1,4 +1,4 @@
-<div class="ml-auto h-10 flex">
+<div (clickOutside)="closeModal()" class="ml-auto h-10 flex">
   <div
     (click)="showSearchModal=true"
     *ngIf="!showSearchModal"
@@ -8,6 +8,7 @@
     </div>
     <div class="cursor-text text-[12px] text-gray-400">
       جستجو
+      {{someText}}
     </div>
   </div>
 
@@ -16,7 +17,10 @@
     id="overlay-searchModal"
     class="h-full delay-700 w-full md:h-auto z-50"
   >
-    <div id="searchModal" class="relative h-full w-full md:h-auto">
+    <div
+
+      id="searchModal"
+      class="relative h-full w-full md:h-auto">
       <div class="relative rounded-lg bg-white shadow-lg dark:bg-gray-700">
         <div class="ml-auto h-10 flex-auto grow">
           <div

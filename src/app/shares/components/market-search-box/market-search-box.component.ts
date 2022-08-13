@@ -1,4 +1,4 @@
-import {Component, Host, HostListener, OnInit} from '@angular/core';
+import {Component, ElementRef, Host, HostListener, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-market-search-box',
@@ -11,19 +11,11 @@ export class MarketSearchBoxComponent implements OnInit {
   someText ?: string = 'Hi'
   inside: boolean = true
 
-  constructor() {
+  constructor(private eRef: ElementRef) {
   }
 
-  @HostListener("div:searchBox")
-  clicked() {
-    this.inside = true;
-  }
-
-  @HostListener("document:click")
-  clickedOut() {
-    if (this.inside) {
-      alert('outside')
-    }
+  closeModal() {
+    if (this.showSearchModal) this.showSearchModal = false;
   }
 
   ngOnInit(): void {
