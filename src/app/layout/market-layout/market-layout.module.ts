@@ -7,6 +7,7 @@ import { SvgIconsModule } from '../../shares/svg-icons/svg-icons.module';
 import { SvgIconsComponent } from '../../shares/svg-icons/svg-icons.component';
 import { MarketHeaderComponent } from '../../shares/market-header/market-header.component';
 import { MarketFooterComponent } from '../../shares/market-footer/market-footer.component';
+import {MarketSearchBoxComponent} from "../../shares/market-search-box/market-search-box.component";
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { MarketFooterComponent } from '../../shares/market-footer/market-footer.
     MarketLayoutComponent,
     SvgIconsComponent,
     MarketHeaderComponent,
+    MarketSearchBoxComponent,
     MarketFooterComponent
   ],
   imports: [
