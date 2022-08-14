@@ -3,7 +3,6 @@
   <app-market-header></app-market-header>
   <main class="container mx-auto mt-[110px]">
     <div id="backdrop-searchModal">
-      {{backdropShow}}
       <div class="backdrop-blur bg-black/60 backdrop-opacity-50 w-full top-0 left-0 h-full absolute delay-700" *ngIf="backdropShow"
            (click)="backdropService.state.next(false)"></div>
     </div>
