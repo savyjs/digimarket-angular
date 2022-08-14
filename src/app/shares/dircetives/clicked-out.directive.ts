@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostListener,EventEmitter, Output} from '@angular/core';
+import {Directive, ElementRef, HostListener, EventEmitter, Output} from '@angular/core';
 
 @Directive({
   selector: '[clickOutside]'
@@ -16,8 +16,8 @@ export class ClickedOutDirective {
     if (!targetElement) {
       return;
     }
-
-    const clickedInside = this._elementRef.nativeElement.contains(targetElement);
+    let el = this._elementRef.nativeElement
+    const clickedInside = el === targetElement || el.contains(targetElement);
     if (!clickedInside) {
       this.clickOutside.emit(event);
     }

@@ -1,8 +1,8 @@
 <div (clickOutside)="closeModal()">
   <div class="ml-auto h-10 flex">
     <div
-      (click)="showSearchModal=true"
-      [class]="showSearchModal ? 'hidden' :  'px-4-lg bg-gray-100 text-body-2 rounded-xl flex h-10 items-center w-full'">
+      (click)="showSearchModal.next(true)"
+      [class]="showSearchModal.getValue() ? 'hidden' :  'px-4-lg bg-gray-100 text-body-2 rounded-xl flex h-10 items-center w-full'">
       <div class="pr-2 pl-3 text-[13px] text-gray-400">
         <i class="fa fa-search"></i>
       </div>
@@ -11,12 +11,11 @@
       </div>
     </div>
     <div
-      *ngIf="showSearchModal"
+      *ngIf="showSearchModal.getValue()"
       id="overlay-searchModal"
       class="h-full delay-700 w-full md:h-auto z-50"
     >
       <div
-
         id="searchModal"
         class="relative h-full w-full md:h-auto">
         <div class="relative rounded-lg bg-white shadow-lg dark:bg-gray-700">

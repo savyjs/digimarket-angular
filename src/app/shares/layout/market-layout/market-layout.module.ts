@@ -10,6 +10,7 @@ import { MarketFooterComponent } from '../../components/market-footer/market-foo
 import {MarketSearchBoxComponent} from "../../components/market-search-box/market-search-box.component";
 import { ClickedOutDirective } from '../../dircetives/clicked-out.directive';
 
+
 @NgModule({
   declarations: [
     MarketLayoutComponent,
