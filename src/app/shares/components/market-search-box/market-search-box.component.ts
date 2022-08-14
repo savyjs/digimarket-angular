@@ -8,7 +8,6 @@ import {Component, ElementRef, Host, HostListener, OnInit} from '@angular/core';
 export class MarketSearchBoxComponent implements OnInit {
   tags: Array<any> = [];
   showSearchModal: boolean = false;
-  someText ?: string = 'Hi'
   inside: boolean = true
 
   constructor(private eRef: ElementRef) {
