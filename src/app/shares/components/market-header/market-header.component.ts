@@ -6,11 +6,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./market-header.component.css']
 })
 export class MarketHeaderComponent implements OnInit {
-  tags = [];
-  showSearchModal = false;
-  title = '';
-  logo = '/src/static/dkala/logo.svg';
-
+  logo ?: string = '/assets/static/dkala/logo.svg';
+  title ?: string = undefined ;
   constructor() {
   }
 
