@@ -7,13 +7,15 @@ import { ClickedOutDirective } from './shares/dircetives/clicked-out.directive';
 ClickedOutDirective
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

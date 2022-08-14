@@ -9,6 +9,9 @@ import { MarketHeaderComponent } from '../../components/market-header/market-hea
 import { MarketFooterComponent } from '../../components/market-footer/market-footer.component';
 import {MarketSearchBoxComponent} from "../../components/market-search-box/market-search-box.component";
 import { ClickedOutDirective } from '../../dircetives/clicked-out.directive';
+import {MegaMenuComponent} from "../../components/mega-menu/mega-menu.component";
+import {MarketNavbarComponent} from "../../components/market-navbar/market-navbar.component";
+import {MegaMenuModule} from "../../components/mega-menu/mega-menu.module";
 
 
 @NgModule({
@@ -18,12 +21,15 @@ import { ClickedOutDirective } from '../../dircetives/clicked-out.directive';
     MarketHeaderComponent,
     MarketSearchBoxComponent,
     MarketFooterComponent,
-    ClickedOutDirective
+    ClickedOutDirective,
+    MegaMenuComponent,
+    MarketNavbarComponent
   ],
   imports: [
     CommonModule,
     MarketLayoutRoutingModule,
-    SvgIconsModule
+    SvgIconsModule,
+    MegaMenuModule
   ]
 })
 export class MarketLayoutModule { }
