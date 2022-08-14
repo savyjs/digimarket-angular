@@ -10,9 +10,6 @@ export class BackDropService {
   public stateObservable = this.state.asObservable();
 
   constructor() {
-    this.state.subscribe(val => {
-      console.log('from service:', {val}, this.state.getValue())
-    })
   }
 
 
