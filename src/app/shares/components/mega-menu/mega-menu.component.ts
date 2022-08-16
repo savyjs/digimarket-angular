@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./mega-menu.component.css']
 })
 export class MegaMenuComponent implements OnInit {
-  public megaMenuMainCategoryIndex = 0;
+  public megaMenuMainCategoryIndex: any = 0;
   public items = ([
     {
       key: 'electronic',
@@ -842,7 +842,7 @@ export class MegaMenuComponent implements OnInit {
       categories: [],
     },
   ]);
-  public mainCategory = this.items[0]
+  public mainCategory: any = this.items[0]
 
   constructor() {
   }
