@@ -6,7 +6,7 @@
         <a
           *ngFor="let category of items; let index = index"
           [routerLink]="'/categories/' +  category?.key"
-          (mouseover)="megaMenuMainCategoryIndex = index"
+          (mouseover)="mainCategory = category;megaMenuMainCategoryIndex = index"
           class="hover flex items-center px-1 py-4 text-right hover:bg-gray-100 hover:fill-red-500 hover:text-red-500"
         >
           <svg class="h-4 w-4" fill="currentColor">
@@ -27,26 +27,23 @@
             </svg>
           </a>
 
-          <div class="flex h-[70vh] flex-col flex-wrap pb-5">
-            <ng-template *ngFor="let category of mainCategory?.categories">
+          <div class="flex h-[70vh] flex-col flex-wrap pb-5" *ngIf="mainCategory.categories">
+            <div *ngFor="let category of mainCategory?.categories">
               <a [routerLink]="'/categories/' + category.key">
                 <a class="mt-1 flex  py-1 hover:text-red-600">
                   <span class="w-0.5 bg-red-600"></span>
                   <span class="pl-1 pr-2 font-bold"> {{ category?.title }}</span>
-
                   <svg class="h-3 w-3" fill="currentColor">
                     <use href="#chevronLeft"></use>
                   </svg>
                 </a>
               </a>
-              <ng-template *ngFor="let subCategory in category.subCategories">
-                <a [routerLink]="'/categories/' + subCategory.key">
-                  <a class="mt-1 flex py-1 text-[11px] text-gray-500  hover:text-red-600">
-                    <span class="px-2"> {{ subCategory?.title }}</span>
-                  </a>
+              <a *ngFor="let subCategory in category.subCategories" [routerLink]="'/categories/' + subCategory.key">
+                <a class="mt-1 flex py-1 text-[11px] text-gray-500  hover:text-red-600">
+                  <span class="px-2"> {{ subCategory?.title }}</span>
                 </a>
-              </ng-template>
-            </ng-template>
+              </a>
+            </div>
           </div>
         </div>
         <div class="w-1/5 pt-4">
