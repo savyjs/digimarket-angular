@@ -1,0 +1,27 @@
+<div class="h-80 overflow-y-auto px-2">
+  <div
+    *ngIf="depthLevel > 0"
+    (click)="unselectDivision()"
+    class="mr-2 flex cursor-pointer items-center justify-between border-b
+             border-gray-100 p-2 py-4 text-sm font-bold text-gray-800"
+  >
+    <span>...</span>
+    <svg class="h-5 w-5" fill="currentColor">
+      <use href="#chevronLeft"></use>
+    </svg>
+  </div>
+
+  <div
+    *ngFor="let item of activeDivisions; let key = index"
+    (click)="selectDivision(item,key)"
+    [attr.data-bs-dismiss]=" item && item?.items ? '' : 'modal'"
+    class="mr-2 flex cursor-pointer items-center justify-between border-b
+             border-gray-100 p-2 py-4 text-sm font-bold text-gray-800"
+  >
+    <span *ngIf="item">{{ item?.title }}</span>
+    <svg class="h-5 w-5" fill="currentColor">
+      <use href="#chevronLeft"></use>
+    </svg>
+  </div>
+
+</div>

@@ -25,7 +25,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/tw-elements/dist/js/index.min.js",
+              "./node_modules/flowbite/dist/flowbite.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -92,7 +95,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/tw-elements/dist/js/index.min.js",
+              "./node_modules/flowbite/dist/flowbite.js"
+            ]
           }
         }
       }
