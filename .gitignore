@@ -48,3 +48,5 @@ yarn.lock
 src/static/fonts/
 
 src/assets/static/fonts/
+
+*.lock
