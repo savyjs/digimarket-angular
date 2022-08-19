@@ -16,6 +16,7 @@ import {MarketDivisionsComponent} from "../../components/market-divisions/market
 import {MarketSubDivisionsComponent} from "../../components/market-sub-divisions/market-sub-divisions.component";
 import {MarketDivisionsModule} from "../../components/market-divisions/market-divisions.module";
 import {MarketSubDivisionsModule} from "../../components/market-sub-divisions/market-sub-divisions.module";
+import {BreadcrumbModule} from "xng-breadcrumb";
 
 
 @NgModule({
@@ -29,9 +30,11 @@ import {MarketSubDivisionsModule} from "../../components/market-sub-divisions/ma
     MegaMenuComponent,
     MarketNavbarComponent,
     MarketDivisionsComponent,
-    MarketSubDivisionsComponent
+    MarketSubDivisionsComponent,
+
   ],
   imports: [
+    BreadcrumbModule,
     CommonModule,
     MarketLayoutRoutingModule,
     SvgIconsModule,
