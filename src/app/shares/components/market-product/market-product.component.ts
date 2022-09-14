@@ -14,6 +14,7 @@ export class MarketProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('this.item:',this.item)
   }
 
 }
