@@ -10,3 +10,8 @@
     <img class="w-[150%]" [src]="item?.product?.images?.main?.url[0]"/>
   </div>
 </div>
+<div class="flex">
+  <div *ngFor="let img of item?.product?.images?.list" class="w-[50px] ratio-1x1 border-2 rounded-lg">
+    <img [src]="img?.url" class="w-full" />
+  </div>
+</div>

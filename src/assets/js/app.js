@@ -11,6 +11,7 @@ const saveCursorPosition = function (x, y) {
   const height = img.height;
   const yCenter = topPos + height / 2;
   const xCenter = leftPos + width / 2;
+
   if (pos.y > topPos && pos.y < (topPos + height) && pos.x > leftPos && pos.x < (leftPos + width)) {
     document.documentElement.style.setProperty('--x', pos.x + 'px');
     document.documentElement.style.setProperty('--y', pos.y + 'px');
