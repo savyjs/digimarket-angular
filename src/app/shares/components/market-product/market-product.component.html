@@ -1,11 +1,30 @@
-<div class="flex">
-  <div class="">
+<div class="flex gap-2 mt-[40px]">
+  <div class="w-1/3">
     <app-market-product-images [item]="item"></app-market-product-images>
   </div>
-  <div class="">
-  Details
+  <div class="w-1/3">
+    <div>
+      <nav class="rounded-md w-full text-[15px]">
+        <ol class="list-reset flex">
+          <li>
+            <a href="#" class="text-blue-500 hover:text-blue-600">
+              {{item?.product?.brand?.title_fa}}
+            </a>
+          </li>
+          <li><span class="text-gray-500 mx-2">/</span></li>
+          <li>
+            <a href="#" class="text-blue-500 hover:text-blue-500">
+              {{item?.product?.category?.title_fa + ' ' + item?.product?.brand?.title_fa}}
+            </a>
+          </li>
+        </ol>
+      </nav>
+      <div class="py-2 border-b-[1px] font-bold text-[18px]">
+        {{item?.product?.title_fa}}
+      </div>
+    </div>
   </div>
-  <div class="">
+  <div class="w-1/3 sm:mt-[65px]">
     <app-market-product-action-box [item]="item"></app-market-product-action-box>
   </div>
 </div>

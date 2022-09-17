@@ -27,7 +27,8 @@
             ],
             "scripts": [
               "./node_modules/tw-elements/dist/js/index.min.js",
-              "./node_modules/flowbite/dist/flowbite.js"
+              "./node_modules/flowbite/dist/flowbite.js",
+              "./src/assets/js/app.js"
             ]
           },
           "configurations": {
@@ -103,7 +104,8 @@
             ],
             "scripts": [
               "./node_modules/tw-elements/dist/js/index.min.js",
-              "./node_modules/flowbite/dist/flowbite.js"
+              "./node_modules/flowbite/dist/flowbite.js",
+              "./src/assets/js/app.js"
             ]
           }
         }

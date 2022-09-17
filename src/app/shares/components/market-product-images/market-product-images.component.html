@@ -1,1 +1,13 @@
-<img [src]="item?.product?.images?.main?.url[0]" />
+<div class="imageBox">
+  <div class="font-bold text-red-600 text-[16px]">فروش ویژه</div>
+  <div class="mainImage bg-black overflow-hidden">
+    <img [src]="item?.product?.images?.main?.url[0]" id="mainImage" class="cursor-crosshair w-full"/>
+    <div
+      class="tracker cursor-crosshair hidden absolute border-[1px] rounded-lg bg-orange-600 outline-orange-800 w-[400px] h-[180px] top-[-90px] left-[-200px] opacity-10"></div>
+  </div>
+  <div class="zoomImg overflow-hidden align-middle justify-center items-center transition-all  hidden fixed bg-white top-0 bottom-0 border-gray-300 border-2 rounded shadow left-0
+   w-2/3 ">
+    <img class="w-[150%]" [src]="item?.product?.images?.main?.url[0]"/>
+  </div>
+
+</div>
