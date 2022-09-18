@@ -31,7 +31,6 @@ import {BreadcrumbModule} from "xng-breadcrumb";
     MarketNavbarComponent,
     MarketDivisionsComponent,
     MarketSubDivisionsComponent,
-
   ],
   imports: [
     BreadcrumbModule,

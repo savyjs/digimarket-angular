@@ -1,10 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ActivatedRouteSnapshot, ParamMap} from "@angular/router";
 import {HttpService} from "../../services/http/http.service";
-import {environment} from "../../../../environments/environment";
-import {retry} from "rxjs";
-import {map} from "rxjs/operators";
-
 
 @Component({
   selector: 'app-product',

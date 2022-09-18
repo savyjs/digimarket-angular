@@ -1,17 +1,105 @@
 <div class="font-bold text-red-600 text-[16px]">فروش ویژه</div>
-<div class="imageBox">
-  <div class="mainImage bg-black overflow-hidden">
-    <img [src]="item?.product?.images?.main?.url[0]" id="mainImage" class="cursor-crosshair w-full"/>
+<div class="imageBox h-full">
+  <div class="mainImage h-full items-center align-middle justify-center flex overflow-hidden">
+    <img [src]="item?.product?.images?.main?.url[0]" id="mainImage"
+         class="cursor-crosshair max-w-full max-h-full"/>
     <div
-      class="tracker cursor-crosshair hidden absolute border-[1px] rounded-lg bg-orange-600 outline-orange-800 w-[400px] h-[180px] top-[-90px] left-[-200px] opacity-10"></div>
+      class="tracker absolute hidden cursor-crosshair  border-[1px] rounded-lg bg-orange-600 outline-orange-800 w-[400px] h-[180px] top-[-90px] left-[-200px] opacity-10"></div>
   </div>
   <div class="zoomImg overflow-hidden align-middle justify-center items-center transition-all  hidden fixed bg-white top-0 bottom-0 border-gray-300 border-2 rounded shadow left-0
    w-2/3 ">
     <img class="w-[150%]" [src]="item?.product?.images?.main?.url[0]"/>
   </div>
 </div>
-<div class="flex">
-  <div *ngFor="let img of item?.product?.images?.list" class="w-[50px] ratio-1x1 border-2 rounded-lg">
-    <img [src]="img?.url" class="w-full" />
+<div class="flex gap-2">
+  <ng-template ngFor let-img [ngForOf]="item?.product?.images?.list.slice(0,4)" let-i="index">
+    <div class="w-[72px] ratio-1x1 border-2 p-1 rounded-lg cursor-pointer" data-bs-toggle="modal"
+         data-bs-target="#productImages">
+      <img [src]="img?.url" class="max-w-full max-h-full"
+      />
+    </div>
+  </ng-template>
+  <div data-bs-toggle="modal" data-bs-target="#productImages"
+       *ngIf="item?.product?.images?.list.length > 4"
+       class="w-[72px] cursor-pointer ratio-1x1 border rounded-lg">
+
+    <img [src]="item?.product?.images?.list[4]?.url"
+         class="w-full bg-white opacity-60 blur items-center justify-center align-middle"/>
+    <span class="absolute mt-[-50px] mr-[28px] font-extrabold">...</span>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+     id="productImages" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog relative w-auto pointer-events-none">
+    <div
+      class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+      <div
+        class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+        <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalLabel">Modal title</h5>
+        <button type="button"
+                class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body relative p-4">
+
+        <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
+          <div class="h-[20px] absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
+
+          </div>
+          <div class="carousel-inner relative w-full overflow-hidden">
+            <ng-template ngFor let-img [ngForOf]="item?.product?.images?.list.slice(0,4)" let-i="index">
+
+              <div [class]="'carousel-item relative float-left w-full ' + (i==0 ? 'active':'' )">
+                <img
+                  [src]="img?.url"
+                  class="block w-full"
+                  alt="..."
+                />
+                <div class="carousel-caption hidden md:block absolute text-center">
+                  <h5 class="text-xl">First slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+          <button
+            class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+
+      </div>
+      <div
+        class="modal-footer flex flex-shrink-0 gap-3 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+        <ng-template ngFor let-img [ngForOf]="item?.product?.images?.list.slice(0,4)" let-i="index">
+          <img
+            [src]="img?.url"
+            data-bs-target="#carouselExampleCaptions"
+            [attr.data-bs-slide-to]="i"
+            [class]="(i==0 ? 'active':'') + ' h-[30px] ratio-1x1 cursor-pointer' "
+            aria-current="true"
+            aria-label="Slide 1"
+          />
+        </ng-template>
+      </div>
+    </div>
   </div>
 </div>

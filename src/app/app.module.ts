@@ -20,9 +20,6 @@ ClickedOutDirective
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true}
   ],
-    exports: [
-
-    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
