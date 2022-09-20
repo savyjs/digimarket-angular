@@ -62,13 +62,13 @@
       </div>
       <div class="modal-body relative p-4 flex">
 
-        <div class="w-1/2">
+        <div class="w-3/5">
           <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
             <div class="h-[20px] absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
 
             </div>
             <div class="carousel-inner relative w-full overflow-hidden">
-              <ng-template ngFor let-img [ngForOf]="item?.product?.images?.list.slice(0,4)" let-i="index">
+              <ng-template ngFor let-img [ngForOf]="item?.product?.images?.list" let-i="index">
                 <div [class]="'carousel-item relative float-left w-full ' + (i==0 ? 'active':'' )">
                   <img
                     [src]="img?.url"
@@ -99,12 +99,12 @@
           </div>
         </div>
 
-        <div class="w-1/2 px-5">
+        <div class="w-2/5 px-5">
           <div class="w-full py-5">
             {{item?.product?.title_fa}}
           </div>
           <div class="flex gap-2 flex-wrap">
-            <ng-template ngFor let-img [ngForOf]="item?.product?.images?.list.slice(0,4)" let-i="index">
+            <ng-template ngFor let-img [ngForOf]="item?.product?.images?.list" let-i="index">
               <img
                 [src]="img?.url"
                 data-bs-target="#carouselExampleCaptions"
