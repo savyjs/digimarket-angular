@@ -37,10 +37,27 @@
     <div
       class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
       <div
-        class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-        <h5 class="text-xl font-medium leading-normal text-gray-800" id="exampleModalLabel">Modal title</h5>
+        class="modal-header w-full flex flex-grow items-center justify-between border-gray-200 rounded-t-md">
+
+        <div class="border-b border-gray-200 dark:border-gray-700 flex-grow w-full">
+          <ul class="flex flex-auto -mb-px tabs-primary" id="myTab" data-tabs-toggle="#tabs" role="tablist">
+            <li class="mr-2" role="presentation">
+              <button
+                class="active"
+                id="cart-tab"
+                data-tabs-target="#cart"
+                type="button"
+                role="tab"
+                aria-controls="cart"
+                aria-selected="true">تصاویر رسمی
+              </button>
+            </li>
+          </ul>
+        </div>
+
+
         <button type="button"
-                class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                class="btn-close inline-block box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                 data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body relative p-4 flex">
@@ -55,7 +72,7 @@
                 <div [class]="'carousel-item relative float-left w-full ' + (i==0 ? 'active':'' )">
                   <img
                     [src]="img?.url"
-                    class="block w-full"
+                    class="block max-w-full max-h-full"
                     alt="..."
                   />
                 </div>
@@ -81,17 +98,23 @@
             </button>
           </div>
         </div>
-        <div class="flex gap-2 flex-wrap w-1/2">
-          <ng-template ngFor let-img [ngForOf]="item?.product?.images?.list.slice(0,4)" let-i="index">
-            <img
-              [src]="img?.url"
-              data-bs-target="#carouselExampleCaptions"
-              [attr.data-bs-slide-to]="i"
-              [class]="(i==0 ? 'active':'') + ' h-[30px] ratio-1x1 cursor-pointer' "
-              aria-current="true"
-              aria-label="Slide 1"
-            />
-          </ng-template>
+
+        <div class="w-1/2 px-5">
+          <div class="w-full py-5">
+            {{item?.product?.title_fa}}
+          </div>
+          <div class="flex gap-2 flex-wrap">
+            <ng-template ngFor let-img [ngForOf]="item?.product?.images?.list.slice(0,4)" let-i="index">
+              <img
+                [src]="img?.url"
+                data-bs-target="#carouselExampleCaptions"
+                [attr.data-bs-slide-to]="i"
+                [class]="(i==0 ? 'active':'') + ' rounded-lg border-2 ratio-1x1 max-w-[72px] max-h-[72px] cursor-pointer' "
+                aria-current="true"
+                aria-label="Slide 1"
+              />
+            </ng-template>
+          </div>
         </div>
       </div>
     </div>
