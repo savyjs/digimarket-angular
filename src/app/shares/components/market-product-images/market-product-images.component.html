@@ -13,7 +13,7 @@
 </div>
 <div class="flex gap-2">
   <ng-template ngFor let-img [ngForOf]="item?.product?.images?.list.slice(0,4)" let-i="index">
-    <div class="w-[72px] ratio-1x1 border-2 p-1 rounded-lg cursor-pointer" data-bs-toggle="modal"
+    <div class="w-[72px] ratio-1x1 border-[1px] p-1 rounded-lg cursor-pointer" data-bs-toggle="modal"
          data-bs-target="#productImages">
       <img [src]="img?.url" class="max-w-full max-h-full"
       />
@@ -21,7 +21,7 @@
   </ng-template>
   <div data-bs-toggle="modal" data-bs-target="#productImages"
        *ngIf="item?.product?.images?.list.length > 4"
-       class="w-[72px] cursor-pointer ratio-1x1 border rounded-lg">
+       class="w-[72px] cursor-pointer ratio-1x1 border-[1px] rounded-lg">
 
     <img [src]="item?.product?.images?.list[4]?.url"
          class="w-full bg-white opacity-60 blur items-center justify-center align-middle"/>
@@ -73,7 +73,6 @@
                   <img
                     [src]="img?.url"
                     class="block max-w-full max-h-full"
-                    alt="..."
                   />
                 </div>
               </ng-template>

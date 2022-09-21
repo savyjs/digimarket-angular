@@ -2,8 +2,8 @@
   <div class="w-1/3">
     <app-market-product-images [item]="item"></app-market-product-images>
   </div>
-  <div class="w-1/3">
-    <div>
+  <div class="w-2/3">
+    <div class="w-full">
       <nav class="rounded-md w-full text-[15px]">
         <ol class="list-reset flex">
           <li>
@@ -19,16 +19,95 @@
           </li>
         </ol>
       </nav>
-      <div class="py-2 border-b-[1px] font-bold text-[18px]">
+      <div class="py-2 font-bold text-[18px]">
         {{item?.product?.title_fa}}
       </div>
     </div>
-    <div class="">
-      <span><img src="/assets/static/img/star-yellow.png" /></span>
-      <span>{{item?.product?.rating?.rate /20}} ({{item?.product?.rating?.count}})</span>
+
+    <div class="w-full flex">
+      <div class="w-3/5 border-t-[1px] ">
+        <div class="py-4">
+          <div class="flex gap-1 text-[12px] font-bold">
+            <span><img src="/assets/static/img/star-yellow.png" class="h-4"/></span>
+            <span>{{item?.product?.rating?.rate / 20}}</span> <span
+            class="text-gray-400">({{item?.product?.rating?.count}}
+            )</span>
+            <span>
+          <svg class="icon-gray fill-gray-300 icon-small">
+            <use href="#dotOutline"/>
+          </svg>
+        </span>
+            <a href="#" class="text-link ">{{item?.product?.comments_count }} دیدگاه</a>
+            <span>
+          <svg class="icon-gray fill-gray-300 icon-small">
+            <use href="#dotOutline"/>
+          </svg>
+        </span>
+            <a href="#" class="text-link ">{{item?.product?.questions_count }} پرسش</a>
+          </div>
+        </div>
+        <div class="border-b-[1px] border-gray-100 mb-2"></div>
+        <div class="w-1/2">
+          <div *ngIf="item?.product?.default_variant?.size">
+            <div>
+              <b>سایز: {{item?.product?.default_variant?.size?.title}}</b>
+            </div>
+            <div class="my-2 flex relative">
+              <div class="dropdown w-full">
+                <button class="
+          dropdown-toggle
+          px-6
+          py-2.5
+          border-[1px]
+          border-gray-200
+          font-medium
+          text-xs
+          leading-tight
+          w-full
+          uppercase
+          rounded
+          transition
+          duration-150
+          ease-in-out
+          flex
+          items-center
+          justify-between
+          whitespace-nowrap
+        "
+                        type="button"
+                        id="dropdownSize"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                >
+                  {{item?.product?.default_variant?.size?.title}}
+                  <svg class="icon-medium">
+                    <use href="#dropdown"></use>
+                  </svg>
+                </button>
+                <ul
+                  class="dropdown-menu min-w-max hidden bg-white text-base w-full text-right rtl
+                   z-50 py-2 list-none rounded-lg mt-1 hidden m-0 border-[1px]"
+                  aria-labelledby="dropdownSize">
+                  <ng-template ngFor let-subItem [ngForOf]="item?.product?.variants"
+                               let-k="index">
+                    <li class="w-full rtl">
+                      <button
+                        class="dropdown-item text-sm py-2 px-4 font-normal text-right rtl
+                        block w-full whitespace-nowrap bg-white text-gray-700">
+                        {{subItem?.size?.title}}
+                      </button>
+                    </li>
+                  </ng-template>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-2/5">
+        <app-market-product-action-box [item]="item"></app-market-product-action-box>
+      </div>
     </div>
   </div>
-  <div class="w-1/3 sm:mt-[65px]">
-    <app-market-product-action-box [item]="item"></app-market-product-action-box>
-  </div>
 </div>
+
