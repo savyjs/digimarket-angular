@@ -23,6 +23,10 @@
         {{item?.product?.title_fa}}
       </div>
     </div>
+    <div class="">
+      <span><img src="/assets/static/img/star-yellow.png" /></span>
+      <span>{{item?.product?.rating?.rate /20}} ({{item?.product?.rating?.count}})</span>
+    </div>
   </div>
   <div class="w-1/3 sm:mt-[65px]">
     <app-market-product-action-box [item]="item"></app-market-product-action-box>
