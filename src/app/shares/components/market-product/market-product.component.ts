@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-market-product',
@@ -9,12 +10,13 @@ export class MarketProductComponent implements OnInit {
 
   @Input()
   public item: any | {};
+  public _ = _;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    console.log('this.item:',this.item)
+    console.log('this.item:', this.item)
   }
 
 }

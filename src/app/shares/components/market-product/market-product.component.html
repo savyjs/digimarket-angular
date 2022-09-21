@@ -88,7 +88,7 @@
                   class="dropdown-menu min-w-max hidden bg-white text-base w-full text-right rtl
                    z-50 py-2 list-none rounded-lg mt-1 hidden m-0 border-[1px]"
                   aria-labelledby="dropdownSize">
-                  <ng-template ngFor let-subItem [ngForOf]="_.unique(item?.product?.variants.map(sItem=>sItem.size?.title))"
+                  <ng-template ngFor let-subItem [ngForOf]="this.item?.product?.variants"
                                let-k="index">
                     <li class="w-full rtl">
                       <button
