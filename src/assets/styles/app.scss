@@ -32,3 +32,10 @@
   margin-left: var(--x);
 }
 
+.colorPropertyBtn svg, .colorPropertyBtn svg {
+  opacity: 0;
+}
+
+.colorPropertyBtn:focus svg, .colorPropertyBtn.active svg {
+  opacity: 1;
+}
