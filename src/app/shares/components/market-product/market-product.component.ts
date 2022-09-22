@@ -11,6 +11,7 @@ export class MarketProductComponent implements OnInit {
   @Input()
   public item: any | {};
   public _ = _;
+  public variantsCount = 5;
 
   constructor() {
   }

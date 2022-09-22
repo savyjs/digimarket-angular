@@ -30,8 +30,7 @@
           <div class="flex gap-1 text-[12px] font-bold">
             <span><img src="/assets/static/img/star-yellow.png" class="h-4"/></span>
             <span>{{item?.product?.rating?.rate / 20}}</span> <span
-            class="text-gray-400">({{item?.product?.rating?.count}}
-            )</span>
+            class="text-gray-400">({{item?.product?.rating?.count}})</span>
             <span>
           <svg class="icon-gray fill-gray-300 icon-small">
             <use href="#dotOutline"/>
@@ -48,8 +47,28 @@
         </div>
         <div class="border-b-[1px] border-gray-100 mb-2"></div>
         <div class="w-1/2">
+          <div *ngIf="item?.product?.colors">
+            <div class="my-5">
+              <b>رنگ: {{item?.product?.default_variant?.color?.title}}</b>
+              <div class="flex gap-4 my-3">
+                <ng-template ngFor let-subItem [ngForOf]="this.item?.product?.colors"
+                             let-k="index">
+                  <button
+                    type="button" [style]="'background:' + subItem?.hex_code"
+                    class="ring-[4px] ring-white focus:ring-cyan-400
+                    border-[1px] flex items-center justify-center align-middle
+                    transition duration-150 ease-in-out rounded-full ratio-1x1 w-7 p-4"
+                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{subItem?.title}}">
+                    <svg class="focus:fill-white fill-transparent icon-medium absolute">
+                      <use href="#done" />
+                    </svg>
+                  </button>
+                </ng-template>
+              </div>
+            </div>
+          </div>
           <div *ngIf="item?.product?.default_variant?.size">
-            <div>
+            <div class="my-5">
               <b>سایز: {{item?.product?.default_variant?.size?.title}}</b>
             </div>
             <div class="my-2 flex relative">
@@ -100,6 +119,27 @@
                   </ng-template>
                 </ul>
               </div>
+            </div>
+          </div>
+          <div *ngIf="item?.product?.review?.attributes">
+            <div class="my-5"><b>ویژگی‌ها</b></div>
+            <ng-template ngFor let-subItem [ngForOf]="this.item?.product?.review?.attributes.slice(0,variantsCount)"
+                         let-k="index">
+              <div class="text-sm font-bold flex gap-2 my-3">
+                <span class="text-gray-400 flex gap-1">
+                  <svg class="icon-gray fill-gray-400 icon-small">
+                    <use href="#dotOutline"/>
+                  </svg>
+                  {{subItem?.title }}:
+                </span>
+                <span>{{subItem?.values?.toString(' ،')}}</span>
+              </div>
+            </ng-template>
+            <div>
+              <button class="text-link text-sm" *ngIf="variantsCount < this.item?.product?.review?.attributes.length"
+                      (click)="variantsCount=99">
+                مشاهده بیشتر ...
+              </button>
             </div>
           </div>
         </div>
