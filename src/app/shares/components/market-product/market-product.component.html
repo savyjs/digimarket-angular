@@ -130,7 +130,7 @@
             <div class="my-5"><b>ویژگی‌ها</b></div>
             <ng-template ngFor let-subItem [ngForOf]="this.item?.product?.review?.attributes.slice(0,variantsCount)"
                          let-k="index">
-              <div class="text-sm font-bold flex gap-2 my-3">
+              <div class="text-sm font-bold flex gap-2 mt-3">
                 <span class="text-gray-400 flex gap-1">
                   <svg class="icon-gray fill-gray-400 icon-small">
                     <use href="#dotOutline"/>
@@ -146,6 +146,16 @@
                 مشاهده بیشتر ...
               </button>
             </div>
+          </div>
+        </div>
+        <div class="border-b-[1px] border-gray-100 mb-2 w-full"></div>
+        <div class="border-[1px] border-gray-200 w-full flex justify-between rounded-lg my-2">
+          <div class="py-5 px-2 flex flex-wrap flex-col justify-center gap-2 text-right">
+            <p class="text-[15px] font-bold text-right">ارسال رایگان</p>
+            <span class="text-gray-500 text-[12px]">برای سفارش‌های بالای ۵۰۰ هزارتومان</span>
+          </div>
+          <div>
+            <img src="/assets/static/img/normalFreeShippingTouchPointImage.d4416515.svg" class="w-full max-h-full" />
           </div>
         </div>
       </div>
