@@ -25,8 +25,8 @@
     </div>
 
     <div class="w-full flex">
-      <div class="w-3/5 border-t-[1px] ">
-        <div class="py-4">
+      <div class="w-3/5 border-t-[1px]">
+        <div class="py-4 w-full">
           <div class="flex gap-1 text-[12px] font-bold">
             <span><img src="/assets/static/img/star-yellow.png" class="h-4"/></span>
             <span>{{item?.product?.rating?.rate / 20}}</span> <span
@@ -45,8 +45,8 @@
             <a href="#" class="text-link ">{{item?.product?.questions_count }} پرسش</a>
           </div>
         </div>
-        <div class="border-b-[1px] border-gray-100 mb-2"></div>
-        <div >
+        <div class="border-b-[1px] border-gray-100 mb-2 w-full"></div>
+        <div class="w-full flex flex-wrap justify-aroundst h-full">
           <div *ngIf="item?.product?.colors?.length" class="w-4/5">
             <div class="my-5">
               <b>رنگ: {{item?.product?.default_variant?.color?.title}}</b>
