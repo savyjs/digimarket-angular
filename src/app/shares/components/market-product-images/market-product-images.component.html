@@ -1,8 +1,8 @@
 <div class="font-bold text-red-600 text-[16px]">فروش ویژه</div>
-<div class="imageBox h-full">
-  <div class="mainImage h-full items-center align-middle justify-center flex overflow-hidden">
+<div class="imageBox h-max">
+  <div class="mainImage h-max items-center align-middle justify-center flex overflow-hidden">
     <img [src]="item?.product?.images?.main?.url[0]" id="mainImage"
-         class="cursor-crosshair max-w-full max-h-full"/>
+         class="cursor-crosshair max-w-full max-h-max"/>
     <div
       class="tracker absolute hidden cursor-crosshair  border-[1px] rounded-lg bg-orange-600 outline-orange-800 w-[400px] h-[180px] top-[-90px] left-[-200px] opacity-10"></div>
   </div>
@@ -15,7 +15,7 @@
   <ng-template ngFor let-img [ngForOf]="item?.product?.images?.list.slice(0,4)" let-i="index">
     <div class="w-[72px] ratio-1x1 border-[1px] p-1 rounded-lg cursor-pointer" data-bs-toggle="modal"
          data-bs-target="#productImages">
-      <img [src]="img?.url" class="max-w-full max-h-full"
+      <img [src]="img?.url" class="max-w-full max-h-max"
       />
     </div>
   </ng-template>
@@ -31,7 +31,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+<div class="modal fade fixed top-0 left-0 hidden w-full h-max outline-none overflow-x-hidden overflow-y-auto"
      id="productImages" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-scrollable relative w-auto pointer-events-none">
     <div
@@ -72,7 +72,7 @@
                 <div [class]="'carousel-item relative float-left w-full ' + (i==0 ? 'active':'' )">
                   <img
                     [src]="img?.url"
-                    class="block max-w-full max-h-full"
+                    class="block max-w-full max-h-max"
                   />
                 </div>
               </ng-template>

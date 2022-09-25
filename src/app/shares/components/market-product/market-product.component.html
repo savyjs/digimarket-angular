@@ -1,4 +1,4 @@
-<div class="flex gap-2 mt-[40px]">
+<div class="flex gap-2 mt-[40px] w-full">
   <div class="w-1/3">
     <app-market-product-images [item]="item"></app-market-product-images>
   </div>
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="border-b-[1px] border-gray-100 mb-2 w-full"></div>
-        <div class="w-full flex flex-wrap justify-aroundst h-full">
+        <div class="w-full flex flex-wrap justify-around h-max">
           <div *ngIf="item?.product?.colors?.length" class="w-4/5">
             <div class="my-5">
               <b>رنگ: {{item?.product?.default_variant?.color?.title}}</b>
@@ -63,7 +63,8 @@
                     flex items-center justify-center align-middle
                     rounded-full ratio-1x1 w-7 p-4"
                       data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{subItem?.title}}">
-                      <svg [style]="'fill:' + pickTextColorBasedOnBgColorSimple(subItem?.hex_code)" class="icon-medium absolute">
+                      <svg [style]="'fill:' + pickTextColorBasedOnBgColorSimple(subItem?.hex_code)"
+                           class="icon-medium absolute">
                         <use href="#done"/>
                       </svg>
                     </button>
@@ -72,13 +73,14 @@
               </div>
             </div>
           </div>
-          <div *ngIf="item?.product?.default_variant?.size" class="w-3/5">
-            <div class="my-5">
-              <b>سایز: {{item?.product?.default_variant?.size?.title}}</b>
-            </div>
-            <div class="my-2 flex relative">
-              <div class="dropdown w-full">
-                <button class="
+          <div *ngIf="item?.product?.default_variant?.size" class="w-full">
+            <div class="3/5">
+              <div class="my-5">
+                <b>سایز: {{item?.product?.default_variant?.size?.title}}</b>
+              </div>
+              <div class="my-2 flex relative">
+                <div class="dropdown w-full">
+                  <button class="
           dropdown-toggle
           px-6
           py-2.5
@@ -98,35 +100,36 @@
           justify-between
           whitespace-nowrap
         "
-                        type="button"
-                        id="dropdownSize"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                >
-                  {{item?.product?.default_variant?.size?.title}}
-                  <svg class="icon-medium">
-                    <use href="#dropdown"></use>
-                  </svg>
-                </button>
-                <ul
-                  class="dropdown-menu min-w-max hidden bg-white text-base w-full text-right rtl
+                          type="button"
+                          id="dropdownSize"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                  >
+                    {{item?.product?.default_variant?.size?.title}}
+                    <svg class="icon-medium">
+                      <use href="#dropdown"></use>
+                    </svg>
+                  </button>
+                  <ul
+                    class="dropdown-menu min-w-max hidden bg-white text-base w-full text-right rtl
                    z-50 py-2 list-none rounded-lg mt-1 hidden m-0 border-[1px]"
-                  aria-labelledby="dropdownSize">
-                  <ng-template ngFor let-subItem [ngForOf]="this.item?.product?.variants"
-                               let-k="index">
-                    <li class="w-full rtl">
-                      <button
-                        class="dropdown-item text-sm py-2 px-4 font-normal text-right rtl
+                    aria-labelledby="dropdownSize">
+                    <ng-template ngFor let-subItem [ngForOf]="this.item?.product?.variants"
+                                 let-k="index">
+                      <li class="w-full rtl">
+                        <button
+                          class="dropdown-item text-sm py-2 px-4 font-normal text-right rtl
                         block w-full whitespace-nowrap bg-white text-gray-700">
-                        {{subItem?.size?.title}}
-                      </button>
-                    </li>
-                  </ng-template>
-                </ul>
+                          {{subItem?.size?.title}}
+                        </button>
+                      </li>
+                    </ng-template>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-          <div *ngIf="item?.product?.review?.attributes">
+          <div *ngIf="item?.product?.review?.attributes" class="w-full">
             <div class="my-5"><b>ویژگی‌ها</b></div>
             <ng-template ngFor let-subItem [ngForOf]="this.item?.product?.review?.attributes.slice(0,variantsCount)"
                          let-k="index">
@@ -155,7 +158,7 @@
             <span class="text-gray-500 text-[12px]">برای سفارش‌های بالای ۵۰۰ هزارتومان</span>
           </div>
           <div>
-            <img src="/assets/static/img/normalFreeShippingTouchPointImage.d4416515.svg" class="w-full max-h-full" />
+            <img src="/assets/static/img/normalFreeShippingTouchPointImage.d4416515.svg" class="w-full h-max"/>
           </div>
         </div>
       </div>
@@ -165,4 +168,5 @@
     </div>
   </div>
 </div>
+<div class="border-b-[1px] border-gray-100 mb-2 w-full"></div>
 
