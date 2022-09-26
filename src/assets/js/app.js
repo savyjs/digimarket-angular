@@ -34,3 +34,6 @@ function pickTextColorBasedOnBgColorSimple(bgColor, lightColor = 'fill-white', d
     darkColor : lightColor;
 }
 
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}

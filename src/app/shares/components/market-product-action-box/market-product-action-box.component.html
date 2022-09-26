@@ -108,7 +108,7 @@
   <div class="box-row flex gap-5 py-2 align-baseline ltr">
     <div class="flex justify-between w-full">
       <div class="flex items-center">
-        <span class="flex gap-2 text-[12px] text-gray-500">
+        <span class="flex gap-2 text-[12px] text-gray-500 ">
         <svg class='icon-gray icon-small fill-gray-300'>
         <use href='#infoOutline'/>
       </svg>
@@ -116,15 +116,15 @@
         </span>
       </div>
       <div class="space-y-3">
-        <div class="flex gap-2" *ngIf="item?.product?.default_variant?.price?.discount_percent">
+        <div class="flex gap-2 fanum" *ngIf="item?.product?.default_variant?.price?.discount_percent">
           <span
-            class="line-through text-gray-500 text-[10px]">{{item?.product?.default_variant?.price?.rrp_price}}</span>
+            class="line-through text-gray-500 text-[10px] price">{{item?.product?.default_variant?.price?.rrp_price}}</span>
           <span
-            class="px-2 bg-red-500 text-white rounded-xl text-[10px]">{{item?.product?.default_variant?.price?.discount_percent}}
+            class="px-2 bg-red-500 text-white rounded-xl text-[10px] fanum">{{item?.product?.default_variant?.price?.discount_percent}}
             %</span>
         </div>
         <div class="flex gap-2 text-[14px]">
-          <span class="font-extrabold">{{item?.product?.default_variant?.price?.selling_price}}</span>
+          <span class="font-extrabold price">{{item?.product?.default_variant?.price?.selling_price}}</span>
           <svg class="icon-small">
             <use href="#toman"/>
           </svg>
