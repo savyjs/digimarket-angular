@@ -17,7 +17,7 @@ import {MarketSubDivisionsComponent} from "../../components/market-sub-divisions
 import {MarketDivisionsModule} from "../../components/market-divisions/market-divisions.module";
 import {MarketSubDivisionsModule} from "../../components/market-sub-divisions/market-sub-divisions.module";
 import {BreadcrumbModule} from "xng-breadcrumb";
-
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,8 @@ import {BreadcrumbModule} from "xng-breadcrumb";
     SvgIconsModule,
     MegaMenuModule,
     MarketDivisionsModule,
-    MarketSubDivisionsModule
+    MarketSubDivisionsModule,
+    SwiperModule
   ]
 })
 export class MarketLayoutModule {

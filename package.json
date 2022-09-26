@@ -22,6 +22,7 @@
     "flowbite": "^1.5.2",
     "lodash": "^4.17.21",
     "rxjs": "~7.5.0",
+    "swiper": "^8.4.2",
     "tslib": "^2.3.0",
     "tw-elements": "^1.0.0-alpha12",
     "xng-breadcrumb": "^8.0.2",

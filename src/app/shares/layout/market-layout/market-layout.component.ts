@@ -4,7 +4,7 @@ import {BackDropService} from "../../services/backdrop/back-drop.service";
 @Component({
   selector: 'app-market-layout',
   templateUrl: './market-layout.component.html',
-  styleUrls: ['./market-layout.component.css'],
+  styleUrls: ['./market-layout.component.scss'],
 })
 
 export class MarketLayoutComponent implements OnInit {

@@ -24,8 +24,8 @@
       </div>
     </div>
 
-    <div class="w-full flex">
-      <div class="w-3/5 border-t-[1px]">
+    <div class="w-full flex min-h-full gap-2">
+      <div class="w-3/5 border-t-[1px] min-h-full">
         <div class="py-4 w-full">
           <div class="flex gap-1 text-[12px] font-bold">
             <span><img src="/assets/static/img/star-yellow.png" class="h-4"/></span>
@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="border-b-[1px] border-gray-100 mb-2 w-full"></div>
-        <div class="w-full flex flex-wrap justify-around h-max">
+        <div class="w-full flex flex-wrap justify-around min-h-max">
           <div *ngIf="item?.product?.colors?.length" class="w-4/5">
             <div class="my-5">
               <b>رنگ: {{item?.product?.default_variant?.color?.title}}</b>
@@ -143,15 +143,15 @@
                 <span>{{subItem?.values?.toString(' ،')}}</span>
               </div>
             </ng-template>
-            <div>
-              <button class="text-link text-sm" *ngIf="variantsCount < this.item?.product?.review?.attributes.length"
+            <div *ngIf="variantsCount < this.item?.product?.review?.attributes.length">
+              <button class="text-link text-sm"
                       (click)="variantsCount=99">
                 مشاهده بیشتر ...
               </button>
             </div>
           </div>
         </div>
-        <div class="border-b-[1px] border-gray-100 mb-2 w-full"></div>
+        <div class="border-b-[1px] border-gray-100 my-4 w-full"></div>
         <div class="border-[1px] border-gray-200 w-full flex justify-between rounded-lg my-2">
           <div class="py-5 px-2 flex flex-wrap flex-col justify-center gap-2 text-right">
             <p class="text-[15px] font-bold text-right">ارسال رایگان</p>
@@ -168,5 +168,20 @@
     </div>
   </div>
 </div>
-<div class="border-b-[1px] border-gray-100 mb-2 w-full"></div>
-
+<div class="border-b-[1px] border-gray-100 my-2 w-full"></div>
+<div class="w-full flex flex-grow">
+  <ng-template ngFor let-subItem [ngForOf]="[
+  {title:'امکان تحویل اکسپرس',src:'/assets/static/img/express-delivery.svg'},
+  {title:'۲۴ ساعته، ۷ روز هفته',src:'/assets/static/img/support.svg'},
+  {title:'امکان پرداخت در محل',src:'/assets/static/img/cash-on-delivery.svg'},
+  {title:'هفت روز ضمانت بازگشت کالا',src:'/assets/static/img/days-return.svg'},
+  {title:'ضمانت اصل بودن کالا',src:'/assets/static/img/original-products.svg'},
+  ]"
+               let-k="index">
+    <div class="flex gap-2 grow text-gray-500 text-[11px] items-center">
+      <img [src]="subItem.src" class="max-w-full h-12" />
+      <span>{{subItem.title}}</span>
+    </div>
+  </ng-template>
+</div>
+<div class="border-b-[4px] border-gray-100 my-4 w-full"></div>
