@@ -299,3 +299,37 @@
   </ng-template>
 </div>
 <div class="border-b-[4px] border-gray-100 my-4 w-full"></div>
+<h2>فروشندگان این کالا</h2>
+<div class="w-full my-3">
+  <div class="border border-red-600 w-24"></div>
+</div>
+<div class="flex flex-wrap oddTable">
+  <ng-template ngFor let-subItem [ngForOf]="item?.product?.variants" let-i="index">
+    <div class="w-full flex">
+      <div class="flex justify-center">
+        <svg class="icon-large">
+          <use href="#seller"/>
+        </svg>
+      </div>
+      <div>
+        <p>
+          {{subItem?.seller?.title}}
+        </p>
+        <p>
+          عملکرد: {{subItem?.seller?.stars}}
+        </p>
+      </div>
+      <div>
+        <ng-template ngFor let-provider [ngForOf]="subItem?.shipment_methods?.providers" let-j="index">
+          <div class="flex">
+            <p *ngIf="provider?.type=='digikala'" class="text-gray-400 font-[11px]">
+              <svg class="icon-small icon-primary">
+                <use  href="#deliveryExpress" />
+              </svg>
+              {{provider.title}}</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </ng-template>
+</div>
