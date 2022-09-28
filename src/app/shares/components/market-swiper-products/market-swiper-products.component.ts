@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
+const _ = import('lodash')
 
 @Component({
   selector: 'app-market-swiper-products',
   templateUrl: './market-swiper-products.component.html',
   styleUrls: ['./market-swiper-products.component.css']
 })
-export class MarketSwiperProductsComponent implements OnInit {
+export class MarketSwiperProductsComponent implements OnInit, OnChanges {
 
-  constructor() { }
+  @Input() public items: any = null;
+
+  public _ = _;
+  constructor() {
+  }
+
 
   ngOnInit(): void {
   }
-  onSwiper([swiper]:any) {
-    console.log(swiper);
-  }
-  onSlideChange() {
-    console.log('slide change');
+
+  ngOnChanges() {
+    console.log({items: this.items})
   }
 }

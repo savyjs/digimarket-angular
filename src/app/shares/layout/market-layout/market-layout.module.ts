@@ -22,29 +22,32 @@ import {MarketSwiperProductsComponent} from "../../components/market-swiper-prod
 import SwiperCore, {Navigation, Pagination, Scrollbar, A11y} from 'swiper';
 
 @NgModule({
-  declarations: [
-    MarketLayoutComponent,
-    SvgIconsComponent,
-    MarketHeaderComponent,
-    MarketSearchBoxComponent,
-    MarketFooterComponent,
-    ClickedOutDirective,
-    MegaMenuComponent,
-    MarketNavbarComponent,
-    MarketDivisionsComponent,
-    MarketSubDivisionsComponent,
-    MarketSwiperProductsComponent
-  ],
-  imports: [
-    BreadcrumbModule,
-    CommonModule,
-    MarketLayoutRoutingModule,
-    SvgIconsModule,
-    MegaMenuModule,
-    MarketDivisionsModule,
-    MarketSubDivisionsModule,
-    SwiperModule
-  ]
+    declarations: [
+        MarketLayoutComponent,
+        SvgIconsComponent,
+        MarketHeaderComponent,
+        MarketSearchBoxComponent,
+        MarketFooterComponent,
+        ClickedOutDirective,
+        MegaMenuComponent,
+        MarketNavbarComponent,
+        MarketDivisionsComponent,
+        MarketSubDivisionsComponent,
+        MarketSwiperProductsComponent
+    ],
+    exports: [
+        MarketSwiperProductsComponent
+    ],
+    imports: [
+        BreadcrumbModule,
+        CommonModule,
+        MarketLayoutRoutingModule,
+        SvgIconsModule,
+        MegaMenuModule,
+        MarketDivisionsModule,
+        MarketSubDivisionsModule,
+        SwiperModule
+    ]
 })
 export class MarketLayoutModule {
 
