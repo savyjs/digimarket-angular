@@ -359,22 +359,54 @@
 </div>
 <div class="border-b-[4px] border-gray-100 my-4 w-full"></div>
 <!-- Slider main container -->
-<div class="swiper">
-  <!-- Additional required wrapper -->
-  <div class="swiper-wrapper">
-    <!-- Slides -->
-    <div class="swiper-slide">Slide 1</div>
-    <div class="swiper-slide">Slide 2</div>
-    <div class="swiper-slide">Slide 3</div>
-    ...
+<div class="border-[1px] border-rounded-l p-4 overflow-hidden">
+  <h2>کالاهای مشابه</h2>
+  <div class="w-full my-3">
+    <div class="border border-red-600 w-20"></div>
   </div>
-  <!-- If we need pagination -->
-  <div class="swiper-pagination"></div>
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <ng-template ngFor let-subItem [ngForOf]="item?.recommendations?.related_products?.products" let-j="index">
+        <div class="swiper-slide ">
+          <div class='gap-1 mx-1 border-l-[1px] border-gray-200 p-3 pb-5'>
+            <div class='image inline-block justify-center grow w-full flex-row'>
+              <img [src]='subItem?.images.main.url[0]' class="max-w-full max-h-max"/>
+              <div class="w-full text-[13px]">
+                <b>{{subItem?.title_fa}}</b>
+              </div>
+              <div class="w-full flex gap-2 text-gray-500 items-center text-[12px]">
+                <svg class='icon-small fill-blue-300'>
+                  <use href='#productAvailable'/>
+                </svg>
+                <span>{{subItem?.default_variant?.shipment_methods?.description}}</span>
+              </div>
+            </div>
+            <div class='grow'>
+              <div class='flex items-center justify-between'>
+                <div class='text-white bg-red-600 rounded-lg fanum text-[11px] px-3'>
+                  {{subItem?.default_variant?.price?.discount_percent}}%
+                </div>
+                <div class='text-gray-900 text-[14px] font-bold fanum flex gap-2'>
+                  {{subItem?.default_variant?.price?.selling_price}}
+                  <svg class='icon-small fill-gray-600'>
+                    <use href='#toman'/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
 
-  <!-- If we need navigation buttons -->
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
 
-  <!-- If we need scrollbar -->
-  <div class="swiper-scrollbar"></div>
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
 </div>

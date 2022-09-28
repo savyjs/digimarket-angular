@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as _ from 'lodash';
+import Swiper from "swiper";
 
 @Component({
   selector: 'app-market-product',
@@ -17,7 +18,36 @@ export class MarketProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('this.item:', this.item)
+    const swiper = new Swiper('.swiper', {
+      // Optional parameters
+      slidesPerView: 7,
+
+      direction: 'horizontal',
+      loop: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // And if we need scrollbar
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+      breakpoints: {
+        769: {
+          slidesPerView: 6,
+          slidesPerGroup: 4
+        }
+      }
+    });
+
   }
 
 
