@@ -5,12 +5,13 @@ import {AppComponent} from './app.component';
 import {ClickedOutDirective} from './shares/dircetives/clicked-out.directive';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {Interceptor} from "./shares/services/http/Interceptor";
+import { MarketSwiperProductsComponent } from './shares/components/market-swiper-products/market-swiper-products.component';
 
 ClickedOutDirective
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     HttpClientModule,

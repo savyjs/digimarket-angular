@@ -303,33 +303,58 @@
 <div class="w-full my-3">
   <div class="border border-red-600 w-24"></div>
 </div>
-<div class="flex flex-wrap oddTable">
+<div class="flex flex-wrap oddTable gap-y-3 gap-3 items-center">
   <ng-template ngFor let-subItem [ngForOf]="item?.product?.variants" let-i="index">
-    <div class="w-full flex">
-      <div class="flex justify-center">
-        <svg class="icon-large">
-          <use href="#seller"/>
-        </svg>
-      </div>
-      <div>
-        <p>
-          {{subItem?.seller?.title}}
-        </p>
-        <p>
-          عملکرد: {{subItem?.seller?.stars}}
-        </p>
-      </div>
-      <div>
-        <ng-template ngFor let-provider [ngForOf]="subItem?.shipment_methods?.providers" let-j="index">
-          <div class="flex">
-            <p *ngIf="provider?.type=='digikala'" class="text-gray-400 font-[11px]">
-              <svg class="icon-small icon-primary">
-                <use  href="#deliveryExpress" />
-              </svg>
-              {{provider.title}}</p>
+    <div class="w-full flex justify-between items-baseline even:bg-gray-100 pt-[15px] pb-[55px] px-4 rounded-xl">
+      <div class="w-2/5 flex justify-between">
+        <div class="flex justify-start items-center grow gap-3">
+          <svg class="icon-medium">
+            <use href="#seller"/>
+          </svg>
+          <div class="flex flex-col justify-center gap-2">
+            <p class="text-[14px] text-gray-900 font-medium">
+              {{subItem?.seller?.title}}
+            </p>
+            <p class="text-[12px] text-gray-500">
+              عملکرد {{subItem?.seller?.stars}}
+            </p>
           </div>
-        </ng-template>
+        </div>
+        <div class="flex justify-s w-1/2">
+          <div class="flex justify-start text-right">
+            <ng-template ngFor let-provider [ngForOf]="subItem?.shipment_methods?.providers" let-j="index">
+              <div class="flex">
+                <div *ngIf="provider?.type=='digikala'" class="text-gray-400 flex font-[11px] items-center gap-2">
+                  <svg class="icon-small icon-primary">
+                    <use href="#deliveryExpress"/>
+                  </svg>
+                  <span class="text-[11px]">{{provider.title}}</span>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <div class="flex gap-2 items-center text-[13px]">
+          <svg class="icon-medium">
+            <use href="#guarantee"/>
+          </svg>
+          <span class="">{{subItem?.warranty?.title_fa}}</span>
+        </div>
+      </div>
+      <div class="flex justify-end items-center gap-3 mt-[5px]">
+        <span class="flex gap-2 items-center">
+          <span class="price">{{subItem?.price?.selling_price}}</span>
+          <svg class="icon-small icon-gray">
+            <use href="#toman"></use>
+          </svg>
+        </span>
+        <span class="">
+          <button class="bg-red-600 text-white text-md rounded btn-primary rounded-l">افزودن به سبد</button>
+        </span>
       </div>
     </div>
   </ng-template>
 </div>
+<div class="border-b-[4px] border-gray-100 my-4 w-full"></div>

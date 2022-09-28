@@ -1,0 +1,13 @@
+<swiper
+  [slidesPerView]="3"
+  [spaceBetween]="50"
+  (swiper)="onSwiper($event)"
+  (slideChange)="onSlideChange()"
+  [navigation]="true"
+  [pagination]="{ clickable: true }"
+  [scrollbar]="{ draggable: true }"
+>
+  <ng-template swiperSlide>
+    <ng-content></ng-content>
+  </ng-template>
+</swiper>
