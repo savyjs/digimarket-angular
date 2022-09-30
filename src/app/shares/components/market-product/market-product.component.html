@@ -359,7 +359,7 @@
 </div>
 <div class="border-b-[4px] border-gray-100 my-4 w-full"></div>
 <!-- Slider main container -->
-<div class="border-[1px] border-rounded-l p-4 overflow-hidden">
+<div class="border-[1px] rounded-xl p-4 overflow-hidden">
   <h2>کالاهای مشابه</h2>
   <div class="w-full my-3">
     <div class="border border-red-600 w-20"></div>
@@ -372,10 +372,10 @@
           <div class='gap-1 mx-1 border-l-[1px] border-gray-200 p-3 pb-5'>
             <div class='image inline-block justify-center grow w-full flex-row'>
               <img [src]='subItem?.images.main.url[0]' class="max-w-full max-h-max"/>
-              <div class="w-full text-[13px]">
-                <b>{{subItem?.title_fa}}</b>
+              <div class="w-full my-1 text-[12px] font-medium">
+                <b>{{truncateWords(subItem?.title_fa, 8, '...')}}</b>
               </div>
-              <div class="w-full flex gap-2 text-gray-500 items-center text-[12px]">
+              <div class="w-full flex gap-2 font-bold text-gray-500 items-center text-[12px]">
                 <svg class='icon-small fill-blue-300'>
                   <use href='#productAvailable'/>
                 </svg>
@@ -384,10 +384,13 @@
             </div>
             <div class='grow'>
               <div class='flex items-center justify-between'>
-                <div class='text-white bg-red-600 rounded-lg fanum text-[11px] px-3'>
-                  {{subItem?.default_variant?.price?.discount_percent}}%
+                <div>
+                  <div *ngIf="subItem?.default_variant?.price?.discount_percent"
+                       class='font-bold text-white bg-red-600 rounded-lg fanum text-[11px] px-3'>
+                    {{subItem?.default_variant?.price?.discount_percent}}%
+                  </div>
                 </div>
-                <div class='text-gray-900 text-[14px] font-bold fanum flex gap-2'>
+                <div class='text-gray-900 float-left text-[14px] font-bold fanum flex gap-2'>
                   {{subItem?.default_variant?.price?.selling_price}}
                   <svg class='icon-small fill-gray-600'>
                     <use href='#toman'/>
@@ -410,3 +413,116 @@
     <div class="swiper-scrollbar"></div>
   </div>
 </div>
+
+<div class="my-5">
+  <img src="./assets/static/img/banner-mobile.jpg" class="w-full rounded-xl"/>
+</div>
+
+<ul class="nav nav-tabs tabs-primary flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4" id="tabs-tab"
+    role="tablist">
+  <li class="nav-item" role="presentation">
+    <a href="#tabs-home" class="
+      nav-link
+      block
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      border-x-0 border-t-0 border-b-2 border-transparent
+      px-6
+      py-3
+      my-2
+      hover:border-transparent hover:bg-gray-100
+      focus:border-transparent
+      active
+    " id="tabs-home-tab" data-bs-toggle="pill" data-bs-target="#tabs-home" role="tab" aria-controls="tabs-home"
+       aria-selected="true">معرفی</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a href="#tabs-profile" class="
+      nav-link
+      block
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      border-x-0 border-t-0 border-b-2 border-transparent
+      px-6
+      py-3
+      my-2
+      hover:border-transparent hover:bg-gray-100
+      focus:border-transparent
+    " id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
+       aria-controls="tabs-profile" aria-selected="false">بررسی تخصصی</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a href="#tabs-messages" class="
+      nav-link
+      block
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      border-x-0 border-t-0 border-b-2 border-transparent
+      px-6
+      py-3
+      my-2
+      hover:border-transparent hover:bg-gray-100
+      focus:border-transparent
+    " id="tabs-messages-tab" data-bs-toggle="pill" data-bs-target="#tabs-messages" role="tab"
+       aria-controls="tabs-messages" aria-selected="false">مشخصات</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a href="#tabs-contact" class="
+      nav-link
+      block
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      border-x-0 border-t-0 border-b-2 border-transparent
+      px-6
+      py-3
+      my-2
+      hover:border-transparent hover:bg-gray-100
+      focus:border-transparent
+    " id="tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
+       aria-controls="tabs-contact" aria-selected="false">دیدگاه‌ها</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a href="#tabs-questions" class="
+      nav-link
+      block
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      border-x-0 border-t-0 border-b-2 border-transparent
+      px-6
+      py-3
+      my-2
+      hover:border-transparent hover:bg-gray-100
+      focus:border-transparent
+    " id="tabs-questions-tab" data-bs-toggle="pill" data-bs-target="#tabs-questions" role="tab"
+       aria-controls="tabs-questions" aria-selected="false">پرسش‌ها</a>
+  </li>
+</ul>
+<div class="tab-content" id="tabs-tabContent">
+  <div class="tab-pane fade show active" id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab">
+    Tab 1 content
+  </div>
+  <div class="tab-pane fade" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
+    Tab 2 content
+  </div>
+  <div class="tab-pane fade" id="tabs-messages" role="tabpanel" aria-labelledby="tabs-profile-tab">
+    Tab 3 content
+  </div>
+  <div class="tab-pane fade" id="tabs-contact" role="tabpanel" aria-labelledby="tabs-contact-tab">
+    Tab 4 content
+  </div>
+  <div class="tab-pane fade" id="tabs-questions" role="tabpanel" aria-labelledby="tabs-questions-tab">
+    Tab 5 content
+  </div>
+</div>
+
+

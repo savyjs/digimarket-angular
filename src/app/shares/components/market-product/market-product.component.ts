@@ -60,4 +60,15 @@ export class MarketProductComponent implements OnInit {
       darkColor : lightColor;
   }
 
+  truncateWords(sentence: string, amount: number, tail: string) {
+    const words = sentence.split(' ');
+
+    if (amount >= words.length) {
+      return sentence;
+    }
+
+    const truncated = words.slice(0, amount);
+    return `${truncated.join(' ')}${tail}`;
+  }
+
 }
