@@ -417,11 +417,13 @@
 <div class="my-5">
   <img src="./assets/static/img/banner-mobile.jpg" class="w-full rounded-xl"/>
 </div>
-
-<ul class="nav nav-tabs tabs-primary flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4" id="tabs-tab"
-    role="tablist">
-  <li class="nav-item" role="presentation">
-    <a href="#tabs-home" class="
+<div class="flex flex-row">
+  <div id="scrollspymenu" class="lg:inline sticky sticky-top">
+    <ul class="nav nav-tabs tabs-primary flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4 sticky-top "
+        id="tabs-tab"
+        role="tablist">
+      <li class="nav-item" role="presentation">
+        <a href="#tabs-home" class="
       nav-link
       block
       font-medium
@@ -436,10 +438,10 @@
       focus:border-transparent
       active
     " id="tabs-home-tab" data-bs-toggle="pill" data-bs-target="#tabs-home" role="tab" aria-controls="tabs-home"
-       aria-selected="true">معرفی</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a href="#tabs-profile" class="
+           aria-selected="true">معرفی</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="#tabs-profile" class="
       nav-link
       block
       font-medium
@@ -453,10 +455,10 @@
       hover:border-transparent hover:bg-gray-100
       focus:border-transparent
     " id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
-       aria-controls="tabs-profile" aria-selected="false">بررسی تخصصی</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a href="#tabs-messages" class="
+           aria-controls="tabs-profile" aria-selected="false">بررسی تخصصی</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="#tabs-messages" class="
       nav-link
       block
       font-medium
@@ -470,10 +472,10 @@
       hover:border-transparent hover:bg-gray-100
       focus:border-transparent
     " id="tabs-messages-tab" data-bs-toggle="pill" data-bs-target="#tabs-messages" role="tab"
-       aria-controls="tabs-messages" aria-selected="false">مشخصات</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a href="#tabs-contact" class="
+           aria-controls="tabs-messages" aria-selected="false">مشخصات</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="#tabs-contact" class="
       nav-link
       block
       font-medium
@@ -487,10 +489,10 @@
       hover:border-transparent hover:bg-gray-100
       focus:border-transparent
     " id="tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
-       aria-controls="tabs-contact" aria-selected="false">دیدگاه‌ها</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a href="#tabs-questions" class="
+           aria-controls="tabs-contact" aria-selected="false">دیدگاه‌ها</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="#tabs-questions" class="
       nav-link
       block
       font-medium
@@ -504,25 +506,29 @@
       hover:border-transparent hover:bg-gray-100
       focus:border-transparent
     " id="tabs-questions-tab" data-bs-toggle="pill" data-bs-target="#tabs-questions" role="tab"
-       aria-controls="tabs-questions" aria-selected="false">پرسش‌ها</a>
-  </li>
-</ul>
-<div class="tab-content" id="tabs-tabContent">
-  <div class="tab-pane fade show active" id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab">
-    Tab 1 content
-  </div>
-  <div class="tab-pane fade" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
-    Tab 2 content
-  </div>
-  <div class="tab-pane fade" id="tabs-messages" role="tabpanel" aria-labelledby="tabs-profile-tab">
-    Tab 3 content
-  </div>
-  <div class="tab-pane fade" id="tabs-contact" role="tabpanel" aria-labelledby="tabs-contact-tab">
-    Tab 4 content
-  </div>
-  <div class="tab-pane fade" id="tabs-questions" role="tabpanel" aria-labelledby="tabs-questions-tab">
-    Tab 5 content
+           aria-controls="tabs-questions" aria-selected="false">پرسش‌ها</a>
+      </li>
+    </ul>
   </div>
 </div>
-
+<div class="relative overflow-y-auto" data-bs-spy="scroll" data-bs-target="#scrollspymenu" data-bs-offset="200">
+  <section
+    class="h-80 pt-80"
+    id="tabs-home"
+  >
+    Tab 1 content
+  </section>
+  <section class="h-80 pt-80" id="tabs-profile">
+    Tab 2 content
+  </section>
+  <section class="h-80 pt-80" id="tabs-messages">
+    Tab 3 content
+  </section>
+  <section class="h-80 pt-80" id="tabs-contact">
+    Tab 4 content
+  </section>
+  <section class="h-80 pt-80" id="tabs-questions">
+    Tab 5 content
+  </section>
+</div>
 
