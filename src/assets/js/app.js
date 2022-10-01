@@ -37,3 +37,7 @@ function pickTextColorBasedOnBgColorSimple(bgColor, lightColor = 'fill-white', d
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+const el = document.getElementsByTagName('body')[0]
+el.setAttribute('data-bs-target', '#scrollspymenu')
+el.setAttribute('data-bs-spy', '#scroll')
