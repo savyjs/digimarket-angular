@@ -1,0 +1,534 @@
+<div class="flex gap-2 mt-[40px] w-full">
+  <div class="w-1/3">
+    <app-market-product-images [item]="item"></app-market-product-images>
+  </div>
+  <div class="w-2/3">
+    <div class="w-full">
+      <nav class="rounded-md w-full text-[15px]">
+        <ol class="list-reset flex">
+          <li>
+            <a href="#" class="text-blue-500 hover:text-blue-600">
+              {{item?.product?.brand?.title_fa}}
+            </a>
+          </li>
+          <li><span class="text-gray-500 mx-2">/</span></li>
+          <li>
+            <a href="#" class="text-blue-500 hover:text-blue-500">
+              {{item?.product?.category?.title_fa + ' ' + item?.product?.brand?.title_fa}}
+            </a>
+          </li>
+        </ol>
+      </nav>
+      <div class="py-2 font-bold text-[18px]">
+        {{item?.product?.title_fa}}
+      </div>
+    </div>
+
+    <div class="w-full flex min-h-full gap-2">
+      <div class="w-3/5 border-t-[1px] min-h-full">
+        <div class="py-4 w-full">
+          <div class="flex gap-1 text-[12px] font-bold">
+            <span><img src="/assets/static/img/star-yellow.png" class="h-4"/></span>
+            <span class="fanum">{{item?.product?.rating?.rate / 20}}</span> <span
+            class="text-gray-400 fanum">({{item?.product?.rating?.count}})</span>
+            <span>
+          <svg class="icon-gray fill-gray-300 icon-small">
+            <use href="#dotOutline"/>
+          </svg>
+        </span>
+            <a href="#" class="text-link fanum">{{item?.product?.comments_count }} دیدگاه</a>
+            <span>
+          <svg class="icon-gray fill-gray-300 icon-small">
+            <use href="#dotOutline"/>
+          </svg>
+        </span>
+            <a href="#" class="text-link fanum">{{item?.product?.questions_count }} پرسش</a>
+          </div>
+        </div>
+        <div class="border-b-[1px] border-gray-100 mb-2 w-full"></div>
+        <div class="w-full flex flex-wrap justify-around min-h-max">
+          <div *ngIf="item?.product?.colors?.length" class="w-4/5">
+            <div class="my-5">
+              <b>رنگ: {{item?.product?.default_variant?.color?.title}}</b>
+              <div class="flex gap-4 my-3 flex-wrap">
+                <ng-template ngFor let-subItem [ngForOf]="this.item?.product?.colors"
+                             let-k="index">
+                  <div class="flex justify-center">
+                    <button
+                      type="button" [style]="'background:' + subItem?.hex_code"
+                      class="
+                    colorPropertyBtn
+                    focus:ring-[3px] focus:ring-cyan-400 focus:border-[2px] focus:border-white
+                    ring-gray-300 border-white border-[2px] ring-[1px]
+                    flex items-center justify-center align-middle
+                    rounded-full ratio-1x1 w-7 p-4"
+                      data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{subItem?.title}}">
+                      <svg [style]="'fill:' + pickTextColorBasedOnBgColorSimple(subItem?.hex_code)"
+                           class="icon-medium absolute">
+                        <use href="#done"/>
+                      </svg>
+                    </button>
+                  </div>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="item?.product?.default_variant?.size" class="w-full">
+            <div class="3/5">
+              <div class="my-5">
+                <b>سایز: {{item?.product?.default_variant?.size?.title}}</b>
+              </div>
+              <div class="my-2 flex relative">
+                <div class="dropdown w-full">
+                  <button class="
+          dropdown-toggle
+          px-6
+          py-2.5
+          border-[1px]
+          border-gray-200
+          font-medium
+          text-xs
+          leading-tight
+          w-full
+          uppercase
+          rounded
+          transition
+          duration-150
+          ease-in-out
+          flex
+          items-center
+          justify-between
+          whitespace-nowrap
+        "
+                          type="button"
+                          id="dropdownSize"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                  >
+                    {{item?.product?.default_variant?.size?.title}}
+                    <svg class="icon-medium">
+                      <use href="#dropdown"></use>
+                    </svg>
+                  </button>
+                  <ul
+                    class="dropdown-menu min-w-max hidden bg-white text-base w-full text-right rtl
+                   z-50 py-2 list-none rounded-lg mt-1 hidden m-0 border-[1px]"
+                    aria-labelledby="dropdownSize">
+                    <ng-template ngFor let-subItem [ngForOf]="this.item?.product?.variants"
+                                 let-k="index">
+                      <li class="w-full rtl">
+                        <button
+                          class="dropdown-item text-sm py-2 px-4 font-normal text-right rtl
+                        block w-full whitespace-nowrap bg-white text-gray-700">
+                          {{subItem?.size?.title}}
+                        </button>
+                      </li>
+                    </ng-template>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="item?.product?.review?.attributes" class="w-full">
+            <div class="my-5"><b>ویژگی‌ها</b></div>
+            <ng-template ngFor let-subItem [ngForOf]="this.item?.product?.review?.attributes.slice(0,variantsCount)"
+                         let-k="index">
+              <div class="text-sm font-bold flex gap-2 mt-3">
+                <span class="text-gray-400 flex gap-1">
+                  <svg class="icon-gray fill-gray-400 icon-small">
+                    <use href="#dotOutline"/>
+                  </svg>
+                  {{subItem?.title }}:
+                </span>
+                <span>{{subItem?.values?.toString(' ،')}}</span>
+              </div>
+            </ng-template>
+            <div *ngIf="variantsCount < this.item?.product?.review?.attributes.length">
+              <button class="text-link text-sm"
+                      (click)="variantsCount=99">
+                مشاهده بیشتر ...
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="border-b-[1px] border-gray-100 my-4 w-full"></div>
+        <div class="border-[1px] border-gray-200 w-full flex justify-between rounded-lg my-2">
+          <div class="py-5 px-2 flex flex-wrap flex-col justify-center gap-2 text-right">
+            <p class="text-[15px] font-bold text-right">ارسال رایگان</p>
+            <span class="text-gray-500 text-[12px]">برای سفارش‌های بالای ۵۰۰ هزارتومان</span>
+          </div>
+          <div>
+            <img src="/assets/static/img/normalFreeShippingTouchPointImage.d4416515.svg" class="w-full h-max"/>
+          </div>
+        </div>
+        <div class="border-[1px] price border-gray-200 w-full flex justify-between rounded-lg my-2"
+             *ngIf="item?.product?.default_variant?.insurance?.total_premium"
+        >
+          <div data-bs-toggle="modal" data-bs-target="#insuranceModal"
+               class="cursor-pointer w-full py-5 px-2 flex flex-wrap flex-col justify-center gap-2 text-right">
+            <p class="w-full text-[12px] font-bold text-right flex gap-2 items-center text-gray-800 justify-between">
+              <span class="flex gap-2">
+              <span>
+                <svg class="icon-small fill-blue-600">
+                  <use href="#guarantee"/>
+                </svg>
+              </span>
+              بیمه تجهیزات دیجیتال - بیمه
+              </span>
+              <span>
+                <svg class="icon-medium">
+                  <use href="#chevronLeft"/>
+                </svg>
+              </span>
+            </p>
+            <div class="text-gray-500 text-[12px] flex">
+              <div class='icon-gray icon-small flex mr-1'>
+                <svg class='mt-1.5 h-1.5' fill='rgb(25, 191, 211)' id='productAvailable'
+                     xmlns='http://www.w3.org/2000/svg'
+                     viewBox='0 0 24 24'>
+                  <path d='M0 10C0 4.477 4.477 0 10 0s10 4.477 10 10-4.477 10-10 10S0 15.523 0 10z'></path>
+                  <path
+                    stroke='#030A16' stroke-opacity='.1' d='M.5 10a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0z'></path>
+                </svg>
+              </div>
+              با قابلیت جبران هزینه های تعمیر و تعویض یکساله
+            </div>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
+               id="insuranceModal" tabindex="-1" aria-labelledby="insuranceModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable relative w-auto pointer-events-none">
+              <div
+                class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
+                <div
+                  class="modal-header flex w-full items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
+                  <span>
+                    <h5 class="text-xl font-medium leading-normal text-gray-800" id="insuranceModalLabel">
+                    جزئیات بیمه
+                  </h5>
+                  </span>
+                  <span>
+                    <button type="button"
+                            class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+                            data-bs-dismiss="modal" aria-label="Close"></button>
+                    </span>
+                </div>
+                <div class="modal-body relative p-4">
+                  <div class="w-full">
+                    <b>بیمه تجهیزات دیجیتال</b>
+                    <p class="w-full text-left justify-end flex gap-2">
+                      {{item?.product?.default_variant?.insurance?.total_premium }}
+                      <svg class="icon-small icon-gray">
+                        <use href="#toman"/>
+                      </svg>
+                    </p>
+                  </div>
+                  <div class="border-b-[1px] border-gray-100 my-4 w-full"></div>
+                  <div class="w-full">
+                    <b>بیمه بخش زیادی از خسارات حوادث زیر را جبران می‌کند:</b>
+                    <ul class="text-gray-500 text-[13px] leading-loose">
+                      <ng-template ngFor let-subItem [ngForOf]="item?.product?.default_variant?.insurance?.covers"
+                                   let-k="index">
+                        <li class="my-3">
+                          - {{subItem.description}}
+                        </li>
+                      </ng-template>
+                    </ul>
+                  </div>
+                </div>
+                <div
+                  class="modal-footer flex gap-2 items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
+                  <button type="button" class="px-6
+      py-2.5
+      bg-red-600
+      text-white
+      font-medium
+      text-md
+      grow
+      leading-tight
+      uppercase
+      rounded
+      shadow-md
+      transition
+      duration-150
+      ease-in-out
+      ml-1">افزودن کالا با بیمه
+                  </button>
+                  <button type="button" class="px-6
+          py-2.5
+          bg-white
+          grow
+          text-red-600
+          font-medium
+          text-md
+          leading-tight
+          uppercase
+          rounded
+          border-[1px]
+          border-red-600
+          transition
+          duration-150
+          ease-in-out" data-bs-dismiss="modal">فعلا نه
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-2/5">
+        <app-market-product-action-box [item]="item"></app-market-product-action-box>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="border-b-[1px] border-gray-100 my-2 w-full"></div>
+<div class="w-full flex flex-grow">
+  <ng-template ngFor let-subItem [ngForOf]="[
+  {title:'امکان تحویل اکسپرس',src:'/assets/static/img/express-delivery.svg'},
+  {title:'۲۴ ساعته، ۷ روز هفته',src:'/assets/static/img/support.svg'},
+  {title:'امکان پرداخت در محل',src:'/assets/static/img/cash-on-delivery.svg'},
+  {title:'هفت روز ضمانت بازگشت کالا',src:'/assets/static/img/days-return.svg'},
+  {title:'ضمانت اصل بودن کالا',src:'/assets/static/img/original-products.svg'},
+  ]"
+               let-k="index">
+    <div class="flex gap-2 grow text-gray-500 text-[11px] items-center">
+      <img [src]="subItem.src" class="max-w-full h-12"/>
+      <span>{{subItem.title}}</span>
+    </div>
+  </ng-template>
+</div>
+<div class="border-b-[4px] border-gray-100 my-4 w-full"></div>
+<h2>فروشندگان این کالا</h2>
+<div class="w-full my-3">
+  <div class="border border-red-600 w-24"></div>
+</div>
+<div class="flex flex-wrap oddTable gap-y-3 gap-3 items-center">
+  <ng-template ngFor let-subItem [ngForOf]="item?.product?.variants" let-i="index">
+    <div class="w-full flex justify-between items-baseline even:bg-gray-100 pt-[15px] pb-[55px] px-4 rounded-xl">
+      <div class="w-2/5 flex justify-between">
+        <div class="flex justify-start items-center grow gap-3">
+          <svg class="icon-medium">
+            <use href="#seller"/>
+          </svg>
+          <div class="flex flex-col justify-center gap-2">
+            <p class="text-[14px] text-gray-900 font-medium">
+              {{subItem?.seller?.title}}
+            </p>
+            <p class="text-[12px] text-gray-500">
+              عملکرد {{subItem?.seller?.stars}}
+            </p>
+          </div>
+        </div>
+        <div class="flex justify-s w-1/2">
+          <div class="flex justify-start text-right">
+            <ng-template ngFor let-provider [ngForOf]="subItem?.shipment_methods?.providers" let-j="index">
+              <div class="flex">
+                <div *ngIf="provider?.type=='digikala'" class="text-gray-400 flex font-[11px] items-center gap-2">
+                  <svg class="icon-small icon-primary">
+                    <use href="#deliveryExpress"/>
+                  </svg>
+                  <span class="text-[11px]">{{provider.title}}</span>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <div class="flex gap-2 items-center text-[13px]">
+          <svg class="icon-medium">
+            <use href="#guarantee"/>
+          </svg>
+          <span class="">{{subItem?.warranty?.title_fa}}</span>
+        </div>
+      </div>
+      <div class="flex justify-end items-center gap-3 mt-[5px]">
+        <span class="flex gap-2 items-center">
+          <span class="price">{{subItem?.price?.selling_price}}</span>
+          <svg class="icon-small icon-gray">
+            <use href="#toman"></use>
+          </svg>
+        </span>
+        <span class="">
+          <button class="bg-red-600 text-white text-md rounded btn-primary rounded-l">افزودن به سبد</button>
+        </span>
+      </div>
+    </div>
+  </ng-template>
+</div>
+<div class="border-b-[4px] border-gray-100 my-4 w-full"></div>
+<!-- Slider main container -->
+<div class="border-[1px] rounded-xl p-4 overflow-hidden">
+  <h2>کالاهای مشابه</h2>
+  <div class="w-full my-3">
+    <div class="border border-red-600 w-20"></div>
+  </div>
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <ng-template ngFor let-subItem [ngForOf]="item?.recommendations?.related_products?.products" let-j="index">
+        <div class="swiper-slide ">
+          <div class='gap-1 mx-1 border-l-[1px] border-gray-200 p-3 pb-5'>
+            <div class='image inline-block justify-center grow w-full flex-row'>
+              <img [src]='subItem?.images.main.url[0]' class="max-w-full max-h-max"/>
+              <div class="w-full my-1 text-[12px] font-medium">
+                <b>{{truncateWords(subItem?.title_fa, 8, '...')}}</b>
+              </div>
+              <div class="w-full flex gap-2 font-bold text-gray-500 items-center text-[12px]">
+                <svg class='icon-small fill-blue-300'>
+                  <use href='#productAvailable'/>
+                </svg>
+                <span>{{subItem?.default_variant?.shipment_methods?.description}}</span>
+              </div>
+            </div>
+            <div class='grow'>
+              <div class='flex items-center justify-between'>
+                <div>
+                  <div *ngIf="subItem?.default_variant?.price?.discount_percent"
+                       class='font-bold text-white bg-red-600 rounded-lg fanum text-[11px] px-3'>
+                    {{subItem?.default_variant?.price?.discount_percent}}%
+                  </div>
+                </div>
+                <div class='text-gray-900 float-left text-[14px] font-bold fanum flex gap-2'>
+                  {{subItem?.default_variant?.price?.selling_price}}
+                  <svg class='icon-small fill-gray-600'>
+                    <use href='#toman'/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+</div>
+
+<div class="my-5">
+  <img src="./assets/static/img/banner-mobile.jpg" class="w-full rounded-xl"/>
+</div>
+<div class="flex flex-row">
+  <div id="scrollspymenu" class="lg:inline sticky sticky-top">
+    <ul class="nav nav-tabs tabs-primary flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4 sticky-top "
+        id="tabs-tab"
+        role="tablist">
+      <li class="nav-item" role="presentation">
+        <a href="#tabs-home" class="
+      nav-link
+      block
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      border-x-0 border-t-0 border-b-2 border-transparent
+      px-6
+      py-3
+      my-2
+      hover:border-transparent hover:bg-gray-100
+      focus:border-transparent
+      active
+    " id="tabs-home-tab" data-bs-toggle="pill" data-bs-target="#tabs-home" role="tab" aria-controls="tabs-home"
+           aria-selected="true">معرفی</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="#tabs-profile" class="
+      nav-link
+      block
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      border-x-0 border-t-0 border-b-2 border-transparent
+      px-6
+      py-3
+      my-2
+      hover:border-transparent hover:bg-gray-100
+      focus:border-transparent
+    " id="tabs-profile-tab" data-bs-toggle="pill" data-bs-target="#tabs-profile" role="tab"
+           aria-controls="tabs-profile" aria-selected="false">بررسی تخصصی</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="#tabs-messages" class="
+      nav-link
+      block
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      border-x-0 border-t-0 border-b-2 border-transparent
+      px-6
+      py-3
+      my-2
+      hover:border-transparent hover:bg-gray-100
+      focus:border-transparent
+    " id="tabs-messages-tab" data-bs-toggle="pill" data-bs-target="#tabs-messages" role="tab"
+           aria-controls="tabs-messages" aria-selected="false">مشخصات</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="#tabs-contact" class="
+      nav-link
+      block
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      border-x-0 border-t-0 border-b-2 border-transparent
+      px-6
+      py-3
+      my-2
+      hover:border-transparent hover:bg-gray-100
+      focus:border-transparent
+    " id="tabs-contact-tab" data-bs-toggle="pill" data-bs-target="#tabs-contact" role="tab"
+           aria-controls="tabs-contact" aria-selected="false">دیدگاه‌ها</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a href="#tabs-questions" class="
+      nav-link
+      block
+      font-medium
+      text-xs
+      leading-tight
+      uppercase
+      border-x-0 border-t-0 border-b-2 border-transparent
+      px-6
+      py-3
+      my-2
+      hover:border-transparent hover:bg-gray-100
+      focus:border-transparent
+    " id="tabs-questions-tab" data-bs-toggle="pill" data-bs-target="#tabs-questions" role="tab"
+           aria-controls="tabs-questions" aria-selected="false">پرسش‌ها</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<div>
+  <section
+    class="h-80 pt-80"
+    id="tabs-home"
+  >
+    Tab 1 content
+  </section>
+  <section class="h-80 pt-80" id="tabs-profile">
+    Tab 2 content
+  </section>
+  <section class="h-80 pt-80" id="tabs-messages">
+    Tab 3 content
+  </section>
+  <section class="h-80 pt-80" id="tabs-contact">
+    Tab 4 content
+  </section>
+  <section class="h-80 pt-80" id="tabs-questions">
+    Tab 5 content
+  </section>
+</div>
+

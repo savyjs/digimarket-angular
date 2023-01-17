@@ -2,6 +2,40 @@
 @import 'tailwind.css';
 @import "../font-css/style.css";
 
+:root {
+  --x: 0;
+  --y: 0;
+  --xCenter: 0;
+  --yCenter: 0;
+}
+
 .rtl {
   direction: rtl;
+}
+
+.imageBox:hover .zoomImg, .mainImage:hover .tracker {
+  position: fixed;
+  display: block;
+}
+
+.imageBox:hover .zoomImg:hover {
+  display: none;
+}
+
+.imageBox:hover .zoomImg img {
+  margin-top: calc((var(--yCenter) - var(--y)));
+  margin-right: calc((var(--x) - var(--xCenter)));
+}
+
+.tracker {
+  margin-top: var(--y);
+  margin-left: var(--x);
+}
+
+.colorPropertyBtn svg, .colorPropertyBtn svg {
+  opacity: 0;
+}
+
+.colorPropertyBtn:focus svg, .colorPropertyBtn.active svg {
+  opacity: 1;
 }

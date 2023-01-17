@@ -33,5 +33,10 @@ module.exports = {
   plugins: [
     require('flowbite/plugin'),
     require('tw-elements/dist/plugin')
-  ]
+  ],
+  variants: {
+    extend: {
+      backgroundColor: ['even'],
+    }
+  },
 }

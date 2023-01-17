@@ -3,3 +3,6 @@ body {
   font-family: iranyekan !important;
   margin: 0;
 }
+.fanum , .price {
+  font-family: IRANYekanXFaNum !important;
+}

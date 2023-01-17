@@ -23,11 +23,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./src/assets/swiper/swiper-bundle.css"
             ],
             "scripts": [
               "./node_modules/tw-elements/dist/js/index.min.js",
-              "./node_modules/flowbite/dist/flowbite.js"
+              "./node_modules/flowbite/dist/flowbite.js",
+              "./node_modules/lodash/lodash.min.js",
+              "./src/assets/js/app.js",
+              "./src/assets/swiper/swiper-bundle.js"
             ]
           },
           "configurations": {
@@ -64,13 +68,19 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+          "options": {
+            "browserTarget": "your-application-name:build",
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular:build:production"
+              "browserTarget": "angular:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
-              "browserTarget": "angular:build:development"
+              "browserTarget": "angular:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
@@ -93,11 +103,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./src/assets/swiper/swiper-bundle.css"
             ],
             "scripts": [
               "./node_modules/tw-elements/dist/js/index.min.js",
-              "./node_modules/flowbite/dist/flowbite.js"
+              "./node_modules/flowbite/dist/flowbite.js",
+              "./node_modules/lodash/lodash.min.js",
+              "./src/assets/js/app.js",
+              "./src/assets/swiper/swiper-bundle.js"
             ]
           }
         }

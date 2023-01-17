@@ -16,29 +16,33 @@ import {MarketDivisionsComponent} from "../../components/market-divisions/market
 import {MarketSubDivisionsComponent} from "../../components/market-sub-divisions/market-sub-divisions.component";
 import {MarketDivisionsModule} from "../../components/market-divisions/market-divisions.module";
 import {MarketSubDivisionsModule} from "../../components/market-sub-divisions/market-sub-divisions.module";
-
+import {BreadcrumbModule} from "xng-breadcrumb";
 
 @NgModule({
-  declarations: [
-    MarketLayoutComponent,
-    SvgIconsComponent,
-    MarketHeaderComponent,
-    MarketSearchBoxComponent,
-    MarketFooterComponent,
-    ClickedOutDirective,
-    MegaMenuComponent,
-    MarketNavbarComponent,
-    MarketDivisionsComponent,
-    MarketSubDivisionsComponent
-  ],
-  imports: [
-    CommonModule,
-    MarketLayoutRoutingModule,
-    SvgIconsModule,
-    MegaMenuModule,
-    MarketDivisionsModule,
-    MarketSubDivisionsModule
-  ]
+    declarations: [
+        MarketLayoutComponent,
+        SvgIconsComponent,
+        MarketHeaderComponent,
+        MarketSearchBoxComponent,
+        MarketFooterComponent,
+        ClickedOutDirective,
+        MegaMenuComponent,
+        MarketNavbarComponent,
+        MarketDivisionsComponent,
+        MarketSubDivisionsComponent
+    ],
+    exports: [
+    ],
+    imports: [
+        BreadcrumbModule,
+        CommonModule,
+        MarketLayoutRoutingModule,
+        SvgIconsModule,
+        MegaMenuModule,
+        MarketDivisionsModule,
+        MarketSubDivisionsModule
+    ]
 })
 export class MarketLayoutModule {
+
 }

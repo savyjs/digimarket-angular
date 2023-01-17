@@ -1,0 +1,140 @@
+<div class="border-gray-200 border-[1px] rounded-lg p-5 bg-gray-100">
+  <div>
+    <p>فروشنده</p>
+  </div>
+  <div class="box-row flex gap-5 py-4">
+    <div>
+      <svg class="icon-medium" fill="currentColor">
+        <use href="#seller"></use>
+      </svg>
+    </div>
+    <div class="font-medium">
+      <p>{{item?.product?.default_variant?.seller?.title}}</p>
+      <p class="text-[12px] font-light py-3">عملکرد
+        <span class="text-green-600">خیلی خوب</span>
+      </p>
+    </div>
+  </div>
+  <div class="border-b-[1px] my-2"></div>
+  <div class="box-row flex gap-5 py-2 align-baseline">
+    <div>
+      <svg class="icon-medium" fill="currentColor">
+        <use href="#guarantee"></use>
+      </svg>
+    </div>
+    <div class="font-medium text-[12px] leading-7">
+      گارانتی اصالت و سلامت فیزیکی کالا
+    </div>
+  </div>
+  <div class="border-b-[1px] my-2"></div>
+  <div class='flex my-4 gap-5'>
+    <div>
+      <div class='icon-gray icon-medium'>
+        <svg fill='rgb(25, 191, 211)' id='productAvailable' xmlns='http://www.w3.org/2000/svg'
+             viewBox='0 0 24 24'>
+          <path fill-rule='evenodd'
+                d='M7 19H6a1 1 0 01-1-1V6a1 1 0 011-1h2v7h8V5h2a1 1 0 011 1v12a1 1 0 01-1 1h-1v2h1a3 3 0 003-3V6a3 3 0 00-3-3H6a3 3 0 00-3 3v12a3 3 0 003 3h1v-2zm3-9V5h4v5h-4zm-.293 7.793l1.755 1.755 3.795-4.217 1.486 1.338-4.5 5a1 1 0 01-1.45.038l-2.5-2.5 1.414-1.414z'
+                clip-rule='evenodd'></path>
+        </svg>
+      </div>
+    </div>
+    <span>موجود در انبار دیجی‌کالا</span>
+  </div>
+  <div class='flex my-2 text-gray-600'>
+    <div class='mx-1'>
+      <div class='icon-gray icon-medium'>
+        <svg class='mt-1.5 h-1.5' fill='rgb(25, 191, 211)' id='productAvailable'
+             xmlns='http://www.w3.org/2000/svg'
+             viewBox='0 0 24 24'>
+          <path d='M0 10C0 4.477 4.477 0 10 0s10 4.477 10 10-4.477 10-10 10S0 15.523 0 10z'></path>
+          <path
+            stroke='#030A16' stroke-opacity='.1' d='M.5 10a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0z'></path>
+        </svg>
+      </div>
+    </div>
+    <div>
+      <svg class='w-6 h-4' fill='red' id='deliveryExpress'
+           xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+        <path fill-rule='evenodd'
+              d='M14.17 19H8.83a3.001 3.001 0 01-5.66 0H2a1 1 0 01-1-1v-7.333C1 8.097 3.033 6 5.556 6H9V5a1 1 0 011-1h12a1 1 0 011 1v13a1 1 0 01-1 1h-2.17a3.001 3.001 0 01-5.66 0zm0-2H11V6h10v11h-1.17a3.001 3.001 0 00-5.66 0zM9 17h-.17a3.001 3.001 0 00-5.66 0H3v-3h5v-2H3v-1.333C3 9.187 4.151 8 5.556 8H9v9zm-2 1a1 1 0 11-2 0 1 1 0 012 0zm10 1a1 1 0 100-2 1 1 0 000 2z'
+              clip-rule='evenodd'></path>
+      </svg>
+    </div>
+    <span class='text-[11px]'>ارسال دیجی‌کالا</span>
+  </div>
+  <div class='flex my-1 text-gray-600'>
+    <div class='mx-1'>
+      <div class='icon-gray icon-medium'>
+        <svg class='mt-1.5 h-1.5' fill='rgb(25, 191, 211)' id='productAvailable'
+             xmlns='http://www.w3.org/2000/svg'
+             viewBox='0 0 24 24'>
+          <path d='M0 10C0 4.477 4.477 0 10 0s10 4.477 10 10-4.477 10-10 10S0 15.523 0 10z'></path>
+          <path
+            stroke='#030A16' stroke-opacity='.1' d='M.5 10a9.5 9.5 0 1119 0 9.5 9.5 0 01-19 0z'></path>
+        </svg>
+      </div>
+    </div>
+    <div>
+      <svg class='w-6 h-4 fill-orange-600'>
+        <use href='#deliveryInPerson'></use>
+      </svg>
+    </div>
+    <span class='text-[11px]'>ارسال فروشنده</span>
+  </div>
+  <div class="border-b-[1px] my-2"></div>
+  <div class="box-row flex gap-5 py-2 align-baseline">
+    <div>
+      <img src='assets/static/dkala/club-point.svg' class='icon-medium'/>
+    </div>
+    <div class="font-medium text-[12px] leading-7 flex gap-2 align-middle">
+      ۱۵۰ امتیاز دیجی‌کلاب
+      <div class='flex items-center'>
+        <button class="flex"
+                data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="بعد از پایان مهلت مرجوعی، برای دریافت امتیاز به صفحه ماموریت‌های کلابی سر بزنید."
+                data-tooltip-placement='bottom' data-tooltip-target='tooltip-no-arrow'>
+          <svg class='icon-gray icon-small fill-gray-300'>
+            <use href='#infoOutline'/>
+          </svg>
+        </button>
+        <div id='tooltip-no-arrow' role='tooltip'
+             class='text-[11px] leading-4 inline-block absolute invisible z-10 py-2 px-3 text-white bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700'>
+          بعد از پایان مهلت مرجوعی، برای دریافت امتیاز به صفحه ماموریت‌های کلابی سر بزنید.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-b-[1px] my-2"></div>
+  <div class="box-row flex gap-5 py-2 align-baseline ltr">
+    <div class="flex justify-between w-full">
+      <div class="flex items-center">
+        <span class="flex gap-2 text-[12px] text-gray-500 ">
+        <svg class='icon-gray icon-small fill-gray-300'>
+        <use href='#infoOutline'/>
+      </svg>
+        قیمت فروشنده
+        </span>
+      </div>
+      <div class="space-y-3">
+        <div class="flex gap-2 fanum" *ngIf="item?.product?.default_variant?.price?.discount_percent">
+          <span
+            class="line-through text-gray-500 text-[10px] price">{{item?.product?.default_variant?.price?.rrp_price}}</span>
+          <span
+            class="px-2 bg-red-500 text-white rounded-xl text-[10px] fanum">{{item?.product?.default_variant?.price?.discount_percent}}
+            %</span>
+        </div>
+        <div class="flex gap-2 text-[14px]">
+          <span class="font-extrabold price">{{item?.product?.default_variant?.price?.selling_price}}</span>
+          <svg class="icon-small">
+            <use href="#toman"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="box-row flex gap-5 py-3 my-2 align-baseline">
+    <button class="bg-red-500 font-bold w-full p-3 text-white text-center rounded-lg border-[1px] border-gray-100 text-[12px]" >
+      افزودن به سبد
+    </button>
+  </div>
+</div>
