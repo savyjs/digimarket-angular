@@ -18,7 +18,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     if (this.id && !isNaN(this.id)) {
       this.httpService.getProduct(this.id).subscribe(res => {
-        this.product = res;
+        this.product = res.data;
       })
     }
   }

@@ -13,6 +13,6 @@ export class HttpService {
   }
 
   public getProduct(id: number): Observable<any> {
-    return this.http.get(environment.apiUrl + '/products/' + id)
+    return this.http.get(environment.apiUrl + '/product/' + id + '/')
   }
 }
