@@ -50,3 +50,7 @@ src/static/fonts/
 src/assets/static/fonts/
 
 *.lock
+
+ecosystem.config.js
+
+bash.sh
